@@ -599,6 +599,15 @@ footer {
   gap: 30px;
 }
 
+/* Adjust navigation for smaller screens */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+}
+
 .nav-links li a {
   text-decoration: none;
   color: #333;
@@ -616,6 +625,14 @@ footer {
   align-items: center;
 }
 
+/* Make icons stack for smaller screens */
+@media (max-width: 600px) {
+  .nav-icons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 .nav-icons a {
   color: #333;
   font-size: 1.1rem;
@@ -625,5 +642,3 @@ footer {
 .nav-icons a:hover {
   color: #a56ae0;
 }
-
-
