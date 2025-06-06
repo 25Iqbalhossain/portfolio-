@@ -92,7 +92,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #fafafa;
+  background: #ffffff;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -627,18 +627,3 @@ footer {
 }
 
 
-@media (max-width: 768px) {
-  .nav-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-icons {
-    justify-content: center;
-  }
-}
