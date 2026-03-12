@@ -46,14 +46,14 @@ const experience = {
     {
       degree: 'Machine Learning Certification',
       school: 'Cambridge International Qualification (UK)',
-      period: 'Nov 2024 – Nov 2025',
-      note: 'EQF Level 1',
+      period: 'Nov 2025 – Nov 2025',
+      note: 'EQF Level 2 .Online',
     },
     {
       degree: 'Cloud Computing Certification',
-      school: 'National Association of State Boards of Accountancy (US)',
+      school: 'National Association of State Boards of Accountancy (USA)',
       period: 'Dec 2025 – Dec 2025',
-      note: 'EQF Level 1',
+      note: 'EQF Level 2 . Online',
     },
     {
       degree: 'GitHub Foundations Certification Prep',

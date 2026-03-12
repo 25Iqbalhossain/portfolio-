@@ -26,24 +26,7 @@ const pubs = [
     color: 'var(--accent-2)',
     statusTag: 'blue',
   },
-  {
-    status: 'Under Review',
-    year: '2025',
-    title: 'LangChain-Enhanced Chatbots in Low-Resource Clinical Environments',
-    venue: 'Peer Review (Healthcare AI)',
-    desc: 'Explores deploying LangChain-based conversational AI systems in triage and clinical settings where compute resources and connectivity are constrained.',
-    color: '#8B6914',
-    statusTag: 'ink',
-  },
-  {
-    status: 'In Preparation',
-    year: '2025',
-    title: 'Transformer-Based Architecture Using Encoder-Decoder Optimization for Low-Resource NLP',
-    venue: 'Manuscript in Preparation',
-    desc: 'Improving encoder-decoder performance for low-resource and multilingual NLP, with a focus on Bengali and other South/Southeast Asian languages.',
-    color: 'var(--ink-3)',
-    statusTag: 'ink',
-  },
+
 ];
 
 export default function Publications() {

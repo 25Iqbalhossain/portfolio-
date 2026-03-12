@@ -50,20 +50,14 @@ const projects = [
     tags: ['Time Series', 'LSTM', 'Environmental AI'],
     link: 'https://github.com/25Iqbalhossain',
   },
-  {
-    title: 'Spam Email Detection',
-    period: '2024',
-    desc: 'Robust spam classifier combining feature engineering (TF-IDF, n-grams, header metadata) with ensemble methods. Evaluated against public benchmarks with precision-focused tuning.',
-    tags: ['NLP', 'ML', 'Email'],
-    link: 'https://github.com/25Iqbalhossain',
-  },
-  {
-    title: 'Food Delivery App (Flutter)',
-    period: '2024',
-    desc: 'Cross-platform mobile application for food ordering with real-time order tracking, Firebase backend, and a clean Material-design UI serving both customers and restaurant partners.',
-    tags: ['Flutter', 'Firebase', 'Mobile'],
-    link: 'https://github.com/25Iqbalhossain',
-  },
+{
+  title: 'Heyhomex Property Data Scraper',
+  period: '2025',
+  desc: 'Scalable property data scraping and indexing pipeline that collects real estate data, processes it, and prepares it for semantic search using OpenSearch and vector embeddings. Built with Python, FastAPI, and automated workflows.',
+  tags: ['Python', 'FastAPI', 'Web Scraping', 'OpenSearch', 'Data Pipeline'],
+  link: 'https://github.com/25Iqbalhossain/Heyhomex-property-data-scraper',
+},
+
 ];
 
 export default function Projects() {

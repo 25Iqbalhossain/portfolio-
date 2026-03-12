@@ -188,7 +188,7 @@ export default function Hero() {
             </div>
             <div className="hero-photo">
               <div className="hero-photo-inner">
-                <img src="/static/profile.jpg" alt="Md. Iqbal Hossain"
+                <img src="/static/profile.png" alt="Md. Iqbal Hossain"
                   onError={e => {
                     e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:#E5E0D5;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
                   }}
