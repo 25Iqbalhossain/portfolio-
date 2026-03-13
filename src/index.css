@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500;600&family=Geist:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #F4F1EB;
+  --bg-alt: #EDE9E0;
+  --bg-card: #FFFDF8;
+  --ink: #1A1612;
+  --ink-2: #4A4540;
+  --ink-3: #8A8480;
+  --accent: #C1440E;
+  --accent-2: #1A4D8F;
+  --accent-3: #2D7A4F;
+  --rule: #D4CFC5;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'Geist Mono', 'Courier New', monospace;
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --max-w: 1200px;
+  --max-w-wide: 1400px;
+}
+
+/* Dark mode colors */
+[data-theme="dark"] {
+  --bg: #0F0E0C;
+  --bg-alt: #1A1816;
+  --bg-card: #1F1D1A;
+  --ink: #F4F1EB;
+  --ink-2: #C4C1BA;
+  --ink-3: #8A8780;
+  --accent: #FF6B35;
+  --accent-2: #4A9EFF;
+  --accent-3: #3FB578;
+  --rule: #2A2824;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 18px; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; border-radius: 45%;}
+a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color 0.15s; }
+a:hover { color: var(--ink); }
+
+/* ── LAYOUT ── */
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 3rem; }
+.container--wide { max-width: var(--max-w-wide); margin: 0 auto; padding: 0 3rem; }
+
+section { padding: 5rem 0; border-top: 1px solid var(--rule); }
+section:first-of-type { border-top: none; }
+
+/* ── TYPOGRAPHY ── */
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.15; letter-spacing: -0.02em; }
+h1 { font-size: clamp(3rem, 6vw, 4.8rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1.5rem; }
+h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+h4 { font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1.5rem; }
+p { color: var(--ink-2); margin-bottom: 1rem; font-size: 1.05rem; }
+p:last-child { margin-bottom: 0; }
+
+.mono { font-family: var(--font-mono); font-size: 0.92em; }
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+/* ── RULE ── */
+.rule { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+
+/* ── TAG ── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  text-transform: uppercase;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.tag--red { color: var(--accent); }
+.tag--blue { color: var(--accent-2); }
+.tag--green { color: var(--accent-3); }
+.tag--ink { color: var(--ink-3); }
+
+/* ── BUTTON ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  padding: 12px 24px;
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--accent); color: #fff; }
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+}
+.btn--ghost:hover { background: var(--ink); color: var(--bg); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes slideIn { from{transform:translateX(-6px);opacity:0} to{transform:none;opacity:1} }
+
+.animate-fadeup { animation: fadeUp 0.6s ease both; }
+.animate-fadeup-2 { animation: fadeUp 0.6s 0.15s ease both; }
+.animate-fadeup-3 { animation: fadeUp 0.6s 0.3s ease both; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--rule); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  section { padding: 3.5rem 0; }
+  .container, .container--wide { padding: 0 1.5rem; }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container, .container--wide { padding: 0 2rem; }
+}
