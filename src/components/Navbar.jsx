@@ -10,9 +10,40 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M12 2.5v3.2M12 18.3v3.2M4.3 4.3l2.3 2.3M17.4 17.4l2.3 2.3M2.5 12h3.2M18.3 12h3.2M4.3 19.7l2.3-2.3M17.4 6.6l2.3-2.3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M15.2 2.8c-4 1-7 4.6-7 9 0 5.2 4.2 9.4 9.4 9.4 1.8 0 3.4-.5 4.8-1.4-1.3.3-2.7.2-4-.2-3.9-1.3-6.7-5-6.7-9.2 0-2.4.9-4.6 2.4-6.2z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default function Navbar({ theme, onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const nextThemeLabel = theme === 'dark' ? 'Light' : 'Dark';
+  const showSun = theme === 'dark';
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -26,9 +57,9 @@ export default function Navbar() {
         .nav {
           position: fixed; top: 0; left: 0; right: 0;
           z-index: 200;
-          background: ${scrolled ? 'rgba(244,241,235,0.96)' : 'transparent'};
-          backdrop-filter: ${scrolled ? 'blur(12px)' : 'none'};
-          border-bottom: ${scrolled ? '1px solid var(--rule)' : '1px solid transparent'};
+          background: var(--nav-bg-strong);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid var(--rule);
           transition: all 0.25s;
         }
         .nav-inner {
@@ -39,6 +70,9 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           justify-content: space-between;
+        }
+        .nav-actions {
+          display: flex; align-items: center; gap: 1.25rem;
         }
         .nav-logo {
           font-family: var(--font-serif);
@@ -61,6 +95,34 @@ export default function Navbar() {
           transition: color 0.15s;
         }
         .nav-links a:hover { color: var(--accent); }
+        .theme-toggle {
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          padding: 6px 10px;
+          border-radius: 999px;
+          border: 1px solid var(--rule);
+          background: var(--bg-card);
+          color: var(--ink);
+          cursor: pointer;
+          transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+          display: inline-flex; align-items: center; justify-content: center;
+        }
+        .theme-toggle:hover {
+          background: var(--bg-alt);
+          border-color: var(--ink-3);
+          color: var(--ink);
+          transform: translateY(-1px);
+        }
+        .theme-toggle:active { transform: translateY(0); }
+        .theme-toggle svg {
+          width: 16px; height: 16px; display: block;
+        }
+        .sr-only {
+          position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+          overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+        }
         .nav-hamburger {
           display: none;
           background: none; border: none; cursor: pointer;
@@ -95,12 +157,23 @@ export default function Navbar() {
       <nav className="nav">
         <div className="nav-inner">
           <a href="#hero" className="nav-logo">Md. Iqbal <span>Hossain</span></a>
-          <ul className="nav-links">
-            {links.map(l => <li key={l.label}><a href={l.href}>{l.label}</a></li>)}
-          </ul>
-          <button className="nav-hamburger" onClick={() => setOpen(o => !o)} aria-label="Menu">
-            <span /><span /><span />
-          </button>
+          <div className="nav-actions">
+            <ul className="nav-links">
+              {links.map(l => <li key={l.label}><a href={l.href}>{l.label}</a></li>)}
+            </ul>
+            <button
+              className="theme-toggle"
+              onClick={onToggleTheme}
+              aria-pressed={theme === 'dark'}
+              aria-label={`Switch to ${nextThemeLabel} mode`}
+            >
+              <span className="sr-only">{`Switch to ${nextThemeLabel} mode`}</span>
+              {showSun ? <SunIcon /> : <MoonIcon />}
+            </button>
+            <button className="nav-hamburger" onClick={() => setOpen(o => !o)} aria-label="Menu">
+              <span /><span /><span />
+            </button>
+          </div>
         </div>
       </nav>
       {open && (

@@ -47,7 +47,7 @@ export default function Hero() {
         #hero {
           min-height: 100vh;
           display: flex; align-items: center;
-          padding-top: 56px;
+          padding-top: 96px;
           border-top: none;
         }
         .hero-grid {
@@ -152,6 +152,7 @@ export default function Hero() {
           animation: slideIn 1.2s ease both;
         }
         @media (max-width: 700px) {
+          #hero { padding-top: 84px; }
           .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
           .hero-photo { width: 130px; }
           .hero-photo-inner { width: 130px; height: 156px; }
@@ -190,7 +191,7 @@ export default function Hero() {
               <div className="hero-photo-inner">
                 <img src="/static/profile.png" alt="Md. Iqbal Hossain"
                   onError={e => {
-                    e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:#E5E0D5;display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
+                    e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
                   }}
                 />
               </div>

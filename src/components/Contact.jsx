@@ -1,14 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [sent, setSent] = useState(false);
+  const resetTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        clearTimeout(resetTimerRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSent(true);
     setForm({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setSent(false), 4000);
+    if (resetTimerRef.current) {
+      clearTimeout(resetTimerRef.current);
+    }
+    resetTimerRef.current = setTimeout(() => setSent(false), 4000);
   };
 
   return (
@@ -118,24 +130,24 @@ export default function Contact() {
               <h4>Send a message</h4>
               <div className="form-row">
                 <div className="form-group">
-                  <label className="form-label">Name *</label>
-                  <input className="form-input" required placeholder="Your full name"
+                  <label className="form-label" htmlFor="contact-name">Name *</label>
+                  <input id="contact-name" className="form-input" required placeholder="Your full name"
                     value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
                 </div>
                 <div className="form-group">
-                  <label className="form-label">Email *</label>
-                  <input className="form-input" type="email" required placeholder="your@email.com"
+                  <label className="form-label" htmlFor="contact-email">Email *</label>
+                  <input id="contact-email" className="form-input" type="email" required placeholder="your@email.com"
                     value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))} />
                 </div>
               </div>
               <div className="form-group">
-                <label className="form-label">Subject</label>
-                <input className="form-input" placeholder="Project enquiry / Collaboration / ..."
+                <label className="form-label" htmlFor="contact-subject">Subject</label>
+                <input id="contact-subject" className="form-input" placeholder="Project enquiry / Collaboration / ..."
                   value={form.subject} onChange={e => setForm(f => ({ ...f, subject: e.target.value }))} />
               </div>
               <div className="form-group">
-                <label className="form-label">Message *</label>
-                <textarea className="form-input" required placeholder="Tell me about your project or idea..."
+                <label className="form-label" htmlFor="contact-message">Message *</label>
+                <textarea id="contact-message" className="form-input" required placeholder="Tell me about your project or idea..."
                   value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))} />
               </div>
               {sent

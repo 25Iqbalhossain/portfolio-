@@ -29,20 +29,8 @@ const projects = [
     tags: ['LangChain', 'RAG', 'FastAPI', 'Healthcare'],
     link: 'https://github.com/25Iqbalhossain',
   },
-  {
-    title: 'NeuroDetect — MRI Brain Tumor Analysis',
-    period: 'Sep 2024 – Oct 2024',
-    desc: 'CNN-based classifier for brain tumor detection from MRI scans. Achieved high classification accuracy across four tumor categories using transfer learning and custom augmentation pipelines.',
-    tags: ['CNN', 'PyTorch', 'Medical Imaging'],
-    link: 'https://github.com/25Iqbalhossain',
-  },
-  {
-    title: 'Fake News Detection',
-    period: '2024',
-    desc: 'NLP pipeline using TF-IDF, word embeddings, and ensemble classifiers to distinguish real from fake news articles. Includes explainability layer for feature attribution.',
-    tags: ['NLP', 'Classification', 'Python'],
-    link: 'https://github.com/25Iqbalhossain',
-  },
+ 
+
   {
     title: 'CO₂ Injection Series Prediction',
     period: '2024',
@@ -136,8 +124,8 @@ export default function Projects() {
 
           {/* Featured */}
           <div className="project-featured">
-            {featured.map((p, i) => (
-              <div key={i} className="project-card project-card--featured">
+            {featured.map(p => (
+              <div key={`${p.title}-${p.period}`} className="project-card project-card--featured">
                 <span className="featured-label">★ Featured</span>
                 <div className="project-period">{p.period}</div>
                 <div className="project-title">{p.title}</div>
@@ -152,8 +140,8 @@ export default function Projects() {
 
           {/* Rest */}
           <div className="project-grid-rest">
-            {rest.map((p, i) => (
-              <div key={i} className="project-card">
+            {rest.map(p => (
+              <div key={`${p.title}-${p.period}`} className="project-card">
                 <div className="project-period">{p.period}</div>
                 <div className="project-title">{p.title}</div>
                 <div className="project-desc">{p.desc}</div>
