@@ -10,13 +10,40 @@ const links = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar() {
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M12 2.5v3.2M12 18.3v3.2M4.3 4.3l2.3 2.3M17.4 17.4l2.3 2.3M2.5 12h3.2M18.3 12h3.2M4.3 19.7l2.3-2.3M17.4 6.6l2.3-2.3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M15.2 2.8c-4 1-7 4.6-7 9 0 5.2 4.2 9.4 9.4 9.4 1.8 0 3.4-.5 4.8-1.4-1.3.3-2.7.2-4-.2-3.9-1.3-6.7-5-6.7-9.2 0-2.4.9-4.6 2.4-6.2z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default function Navbar({ theme, onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  });
+  const nextThemeLabel = theme === 'dark' ? 'Light' : 'Dark';
+  const showSun = theme === 'dark';
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -24,55 +51,43 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-  }, [darkMode]);
-
-  const toggleDarkMode = () => setDarkMode(prev => !prev);
-
   return (
     <>
       <style>{`
         .nav {
           position: fixed; top: 0; left: 0; right: 0;
           z-index: 200;
-          background: ${scrolled ? 'rgba(244,241,235,0.96)' : 'transparent'};
-          backdrop-filter: ${scrolled ? 'blur(12px)' : 'none'};
-          border-bottom: ${scrolled ? '1px solid var(--rule)' : '1px solid transparent'};
+          background: var(--nav-bg-strong);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid var(--rule);
           transition: all 0.25s;
-        }
-        [data-theme="dark"] .nav {
-          background: ${scrolled ? 'rgba(15,14,12,0.96)' : 'transparent'};
         }
         .nav-inner {
           max-width: var(--max-w-wide);
           margin: 0 auto;
-          padding: 0 3rem;
+          padding: 0 2rem;
           height: 56px;
           display: flex;
           align-items: center;
           justify-content: space-between;
         }
+        .nav-actions {
+          display: flex; align-items: center; gap: 1.25rem;
+        }
         .nav-logo {
           font-family: var(--font-serif);
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           color: var(--ink);
           text-decoration: none;
           letter-spacing: -0.01em;
         }
         .nav-logo span { color: var(--accent); }
-        .nav-right {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-        }
         .nav-links {
           display: flex; gap: 2rem; list-style: none;
         }
         .nav-links a {
           font-family: var(--font-mono);
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           letter-spacing: 0.08em;
           text-transform: uppercase;
           color: var(--ink-2);
@@ -81,26 +96,32 @@ export default function Navbar() {
         }
         .nav-links a:hover { color: var(--accent); }
         .theme-toggle {
-          background: none;
-          border: 1px solid var(--rule);
-          border-radius: 4px;
-          cursor: pointer;
-          padding: 6px 10px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
           font-family: var(--font-mono);
-          font-size: 0.75rem;
+          font-size: 0.7rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          padding: 6px 10px;
+          border-radius: 999px;
+          border: 1px solid var(--rule);
+          background: var(--bg-card);
           color: var(--ink);
-          transition: all 0.15s;
+          cursor: pointer;
+          transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+          display: inline-flex; align-items: center; justify-content: center;
         }
         .theme-toggle:hover {
-          background: var(--ink);
-          color: var(--bg);
+          background: var(--bg-alt);
+          border-color: var(--ink-3);
+          color: var(--ink);
+          transform: translateY(-1px);
         }
-        .theme-icon {
-          width: 14px;
-          height: 14px;
+        .theme-toggle:active { transform: translateY(0); }
+        .theme-toggle svg {
+          width: 16px; height: 16px; display: block;
+        }
+        .sr-only {
+          position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+          overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
         }
         .nav-hamburger {
           display: none;
@@ -115,19 +136,15 @@ export default function Navbar() {
           position: fixed; top: 56px; left: 0; right: 0;
           background: var(--bg);
           border-bottom: 1px solid var(--rule);
-          padding: 1.5rem 3rem;
+          padding: 1.5rem 2rem;
           display: flex; flex-direction: column; gap: 1.2rem;
           z-index: 199;
         }
         .mobile-menu a {
           font-family: var(--font-mono);
-          font-size: 0.9rem; letter-spacing: 0.08em;
+          font-size: 0.85rem; letter-spacing: 0.08em;
           text-transform: uppercase; color: var(--ink);
           text-decoration: none;
-        }
-        @media (max-width: 640px) {
-          .nav-inner { padding: 0 1.5rem; }
-          .mobile-menu { padding: 1.5rem 1.5rem; }
         }
         @media (max-width: 700px) {
           .nav-links { display: none; }
@@ -140,31 +157,18 @@ export default function Navbar() {
       <nav className="nav">
         <div className="nav-inner">
           <a href="#hero" className="nav-logo">Md. Iqbal <span>Hossain</span></a>
-          <div className="nav-right">
+          <div className="nav-actions">
             <ul className="nav-links">
               {links.map(l => <li key={l.label}><a href={l.href}>{l.label}</a></li>)}
             </ul>
-            <button 
-              className="theme-toggle" 
-              onClick={toggleDarkMode}
-              aria-label="Toggle dark mode"
-              title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            <button
+              className="theme-toggle"
+              onClick={onToggleTheme}
+              aria-pressed={theme === 'dark'}
+              aria-label={`Switch to ${nextThemeLabel} mode`}
             >
-              {darkMode ? (
-                <>
-                  <svg className="theme-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                  <span>Light</span>
-                </>
-              ) : (
-                <>
-                  <svg className="theme-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                  </svg>
-                  <span>Dark</span>
-                </>
-              )}
+              <span className="sr-only">{`Switch to ${nextThemeLabel} mode`}</span>
+              {showSun ? <SunIcon /> : <MoonIcon />}
             </button>
             <button className="nav-hamburger" onClick={() => setOpen(o => !o)} aria-label="Menu">
               <span /><span /><span />
@@ -175,27 +179,6 @@ export default function Navbar() {
       {open && (
         <div className="mobile-menu" onClick={() => setOpen(false)}>
           {links.map(l => <a key={l.label} href={l.href}>{l.label}</a>)}
-          <button 
-            className="theme-toggle" 
-            onClick={toggleDarkMode}
-            style={{ marginTop: '0.5rem' }}
-          >
-            {darkMode ? (
-              <>
-                <svg className="theme-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-                <span>Light Mode</span>
-              </>
-            ) : (
-              <>
-                <svg className="theme-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                </svg>
-                <span>Dark Mode</span>
-              </>
-            )}
-          </button>
         </div>
       )}
     </>
