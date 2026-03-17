@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { useEffect, useState } from 'react';
-=======
->>>>>>> origin/master
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -14,7 +11,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './index.css';
 
-<<<<<<< HEAD
 const getPreferredTheme = () => {
   if (typeof window === 'undefined') return 'light';
   const stored = window.localStorage.getItem('theme');
@@ -38,12 +34,6 @@ export default function App() {
         theme={theme}
         onToggleTheme={() => setTheme(t => (t === 'dark' ? 'light' : 'dark'))}
       />
-=======
-export default function App() {
-  return (
-    <div className="app">
-      <Navbar />
->>>>>>> origin/master
       <main>
         <Hero />
         <About />
