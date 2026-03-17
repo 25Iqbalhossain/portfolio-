@@ -54,7 +54,7 @@ src/
 ## Customisation
 
 All content is defined as plain JS arrays/objects at the top of each component file — no external CMS needed. Just edit the data and the UI updates.
-
+git action 
 ## Deployment
 
 Works with any static host: Vercel, Netlify, GitHub Pages, or your own server.
