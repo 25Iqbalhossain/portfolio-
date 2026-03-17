@@ -5,7 +5,7 @@ A clean, editorial-style React portfolio inspired by the minimal, content-first 
 ## Design Philosophy
 
 - **Warm parchment tones** (not dark/dark) — professional and readable
-- **Instrument Serif** for headings — editorial elegance  
+- **Instrument Serif** for headings — editorial elegance
 - **Geist Mono** for labels, tags, dates — technical precision
 - **Geist Sans** for body — clean and modern
 - Content-first layout inspired by jeremy.fast.ai — substance over spectacle
@@ -58,3 +58,5 @@ All content is defined as plain JS arrays/objects at the top of each component f
 ## Deployment
 
 Works with any static host: Vercel, Netlify, GitHub Pages, or your own server.
+
+Added gitaction for auto deployment
