@@ -19,22 +19,14 @@ export default function About() {
         }
         .stat-num {
           font-family: var(--font-serif);
-<<<<<<< HEAD
           font-size: 2.8rem;
-=======
-          font-size: 3.2rem;
->>>>>>> origin/master
           color: var(--ink);
           line-height: 1;
           display: block;
         }
         .stat-label {
           font-family: var(--font-mono);
-<<<<<<< HEAD
           font-size: 0.65rem;
-=======
-          font-size: 0.72rem;
->>>>>>> origin/master
           letter-spacing: 0.1em;
           text-transform: uppercase;
           color: var(--ink-3);
@@ -51,11 +43,7 @@ export default function About() {
         .info-row {
           display: flex; justify-content: space-between;
           font-family: var(--font-mono);
-<<<<<<< HEAD
           font-size: 0.75rem;
-=======
-          font-size: 0.8rem;
->>>>>>> origin/master
           color: var(--ink-2);
           padding: 0.4rem 0;
           border-bottom: 1px solid var(--rule);
@@ -107,14 +95,7 @@ export default function About() {
                 </div>
               </div>
 
-<<<<<<< HEAD
               <a href="mailto:25ikbalhossain@gmail.com" className="btn">Contact me</a>
-=======
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a href="mailto:25ikbalhossain@gmail.com" className="btn">Contact me</a>
-                <a href="/Md_Iqbal_Hossain_CV.pdf" download className="btn btn--ghost">Download CV ↓</a>
-              </div>
->>>>>>> origin/master
             </div>
 
             <aside className="about-sidebar">
@@ -141,11 +122,7 @@ export default function About() {
                   <div className="info-row" key={k}>
                     <span>{k}</span>
                     <a href={href} target="_blank" rel="noreferrer"
-<<<<<<< HEAD
                       style={{ fontSize: '0.7rem', fontFamily: 'var(--font-mono)', color: 'var(--accent)', textDecoration: 'none', maxWidth: '55%', textAlign: 'right', wordBreak: 'break-all' }}>
-=======
-                      style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--accent)', textDecoration: 'none', maxWidth: '55%', textAlign: 'right', wordBreak: 'break-all' }}>
->>>>>>> origin/master
                       {v}
                     </a>
                   </div>
