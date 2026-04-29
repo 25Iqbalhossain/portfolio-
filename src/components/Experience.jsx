@@ -24,11 +24,11 @@ const experience = {
       ],
     },
     {
-      role: 'Applied AI Research Consultant',
+      role: 'Applied AI Researcher ',
       company: 'NextStep Writers Publication Ltd',
       url: 'https://www.nextstepwriters.com/',
       location: 'Dhaka, Bangladesh',
-      period: 'Apr 2025 – Dec 2025',
+      period: 'Feb 2024 – Dec 2024',
       bullets: [
         'Conducted applied research in AI/ML, translating academic findings into practical solutions.',
         'Designed, developed, and evaluated ML models, algorithms, and pipelines for real-world challenges.',
