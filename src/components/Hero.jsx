@@ -59,7 +59,7 @@ export default function Hero() {
         }
         .hero-eyebrow {
           font-family: var(--font-mono);
-          font-size: 0.72rem;
+          font-size: 0.9rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: var(--accent);
@@ -73,7 +73,7 @@ export default function Hero() {
         }
         .hero-name {
           font-family: var(--font-serif);
-          font-size: clamp(3rem, 7vw, 5.5rem);
+          font-size: clamp(3.5rem, 8vw, 6.5rem);
           line-height: 1.05;
           letter-spacing: -0.03em;
           color: var(--ink);
@@ -85,15 +85,15 @@ export default function Hero() {
         }
         .hero-role {
           font-family: var(--font-mono);
-          font-size: clamp(0.85rem, 2vw, 1.05rem);
+          font-size: clamp(1.1rem, 2.5vw, 1.3rem);
           color: var(--ink-2);
           margin-bottom: 2rem;
           min-height: 1.6em;
         }
         .hero-bio {
-          font-size: 1.05rem;
+          font-size: 1.2rem;
           color: var(--ink-2);
-          max-width: 520px;
+          max-width: 560px;
           line-height: 1.75;
           margin-bottom: 2.5rem;
         }
@@ -163,7 +163,7 @@ export default function Hero() {
         <div className="container">
           <div className="hero-grid animate-fadeup">
             <div>
-              <div className="hero-eyebrow">AI/ML Engineer · Dhaka, Bangladesh</div>
+              <div className="hero-eyebrow">Machine Learning Engineer · Dhaka, Bangladesh</div>
               <h1 className="hero-name">
                 Md. Iqbal<br /><em>Hossain</em>
               </h1>

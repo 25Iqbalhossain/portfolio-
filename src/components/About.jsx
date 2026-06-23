@@ -62,8 +62,8 @@ export default function About() {
             <div>
               <h2>Bridging AI research<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>& production systems</em></h2>
               <p>
-                Accomplished Machine Learning Engineer with a proven track record of developing
-                scalable AI solutions across healthcare, government, and publishing sectors.
+                Md. Iqbal Hossain, also known as Iqbal Hossain, is a Machine Learning Engineer working on deep learning, predictive analytics, and AI applications.
+                I have a proven track record of developing scalable AI solutions across healthcare, government, and publishing sectors.
                 I specialize in LLM architectures, multimodal pipelines, and deploying
                 intelligent systems that operate at real-world scale.
               </p>
