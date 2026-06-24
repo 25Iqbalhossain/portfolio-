@@ -1,17 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
-  <defs>
-    <clipPath id="circ64">
-      <circle cx="32" cy="32" r="30"/>
-    </clipPath>
-  </defs>
-  <!-- Outer accent ring -->
-  <circle cx="32" cy="32" r="32" fill="#C1440E"/>
-  <!-- Inner white gap -->
-  <circle cx="32" cy="32" r="30.5" fill="#F4F1EB"/>
-  <!-- Profile photo clipped to circle -->
-  <image href="/profile1.png" x="2" y="2" width="60" height="60"
-    clip-path="url(#circ64)"
-    preserveAspectRatio="xMidYMin slice"/>
-  <!-- Accent border ring over photo -->
-  <circle cx="32" cy="32" r="30" fill="none" stroke="#C1440E" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#0d1b2e"/>
+  <!-- Letter I -->
+  <rect x="19" y="16" width="5" height="32" rx="1.5" fill="#ffffff"/>
+  <!-- Letter H - left bar -->
+  <rect x="29" y="16" width="5" height="32" rx="1.5" fill="#ffffff"/>
+  <!-- Letter H - crossbar -->
+  <rect x="29" y="28.5" width="16" height="5" rx="1.5" fill="#ffffff"/>
+  <!-- Letter H - right bar -->
+  <rect x="40" y="16" width="5" height="32" rx="1.5" fill="#ffffff"/>
 </svg>
