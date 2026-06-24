@@ -91,12 +91,35 @@ export default function Hero() {
           min-height: 1.6em;
         }
         .hero-bio {
-          font-size: 1.05rem;
+          font-size: 0.92rem;
           color: var(--ink-2);
-          max-width: 520px;
-          line-height: 1.75;
+          max-width: 540px;
+          line-height: 1.85;
           margin-bottom: 2.5rem;
         }
+        .hero-bio-headline {
+          font-family: var(--font-mono);
+          font-size: 0.78rem;
+          color: var(--ink);
+          font-weight: 600;
+          letter-spacing: 0.02em;
+          margin-bottom: 0.6rem;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 0.4rem 0.6rem;
+        }
+        .hero-bio-sep {
+          color: var(--accent);
+          font-weight: 300;
+          opacity: 0.7;
+        }
+        .hero-bio-body {
+          font-size: 0.92rem;
+          color: var(--ink-2);
+          line-height: 1.85;
+        }
+        .hero-bio-body p { margin: 0 0 0.35rem; }
         .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
         .hero-photo {
           width: 210px;
@@ -177,12 +200,22 @@ export default function Hero() {
               <div className="hero-role">
                 <Typewriter texts={roles} />
               </div>
-              <p className="hero-bio">
-                AI/ML Engineer with practical experience at Time Research &amp; Innovation Ltd (UK).
-                Researcher &amp; Reviewer in NextStepWriters Publications BD, contributing to AI/ML academic discourse.
-                🎓 BSc in CSE (UITS) · ML Certified – Cambridge International, UK · Cloud Computing Certified – NASBA (USA).
-                🔥 Proficient in Python, TensorFlow, PyTorch, and Large Language Models (LLMs).
-              </p>
+              <div className="hero-bio">
+                <div className="hero-bio-headline">
+                  <span>💼 Software Engineer (AI) @ Orange Business Development Ltd.</span>
+                  <span className="hero-bio-sep">|</span>
+                  <span>🎓 ML Certified – Cambridge International, UK</span>
+                  <span className="hero-bio-sep">|</span>
+                  <span>☁️ Cloud Computing Certified – NASBA (USA)</span>
+                </div>
+                <div className="hero-bio-body">
+                  <p>👨‍💻 AI/ML Engineer with practical experience at Time Research &amp; Innovation Ltd (UK)</p>
+                  <p>📝 Researcher &amp; Reviewer · NextStepWriters Publications BD — AI/ML academic discourse</p>
+                  <p>🎓 BSc in CSE (UITS) &nbsp;·&nbsp; Dhaka 🇧🇩</p>
+                  <p>🔥 Python · TensorFlow · PyTorch · Large Language Models (LLMs)</p>
+                  <p>🔗 <a href="https://github.com/25Iqbalhossain" target="_blank" rel="noreferrer" style={{color:'var(--accent)',textDecoration:'none',fontFamily:'var(--font-mono)',fontSize:'0.82rem'}}>github.com/25Iqbalhossain</a></p>
+                </div>
+              </div>
               <div className="hero-ctas">
                 <a href="#contact" className="btn">Get in touch</a>
                 <a href="#projects" className="btn btn--ghost">View work →</a>
@@ -196,7 +229,7 @@ export default function Hero() {
             </div>
             <div className="hero-photo">
               <div className="hero-photo-inner">
-                <img src="/profile1.png" alt="Md. Iqbal Hossain"
+                <img src="/profile.png" alt="Md. Iqbal Hossain"
                   onError={e => {
                     e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
                   }}

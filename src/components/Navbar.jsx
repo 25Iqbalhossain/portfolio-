@@ -75,13 +75,32 @@ export default function Navbar({ theme, onToggleTheme }) {
           display: flex; align-items: center; gap: 1.25rem;
         }
         .nav-logo {
-          font-family: var(--font-serif);
-          font-size: 1.1rem;
-          color: var(--ink);
+          display: flex;
+          align-items: center;
+          gap: 0.65rem;
           text-decoration: none;
-          letter-spacing: -0.01em;
         }
-        .nav-logo span { color: var(--accent); }
+        .nav-logo-img {
+          width: 34px; height: 34px;
+          border-radius: 50%;
+          border: 2px solid var(--accent);
+          box-shadow: 0 0 0 3px var(--bg), 0 0 0 4.5px var(--accent);
+          object-fit: cover;
+          object-position: top center;
+          flex-shrink: 0;
+          transition: box-shadow 0.2s;
+        }
+        .nav-logo:hover .nav-logo-img {
+          box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent);
+        }
+        .nav-logo-text {
+          font-family: var(--font-serif);
+          font-size: 1.05rem;
+          color: var(--ink);
+          letter-spacing: -0.01em;
+          line-height: 1;
+        }
+        .nav-logo-text span { color: var(--accent); }
         .nav-links {
           display: flex; gap: 2rem; list-style: none;
         }
@@ -156,7 +175,10 @@ export default function Navbar({ theme, onToggleTheme }) {
       `}</style>
       <nav className="nav">
         <div className="nav-inner">
-          <a href="#hero" className="nav-logo">Md. Iqbal <span>Hossain</span></a>
+          <a href="#hero" className="nav-logo">
+            <img src="/profile1.png" alt="Iqbal Hossain" className="nav-logo-img" />
+            <span className="nav-logo-text">Md. Iqbal <span>Hossain</span></span>
+          </a>
           <div className="nav-actions">
             <ul className="nav-links">
               {links.map(l => <li key={l.label}><a href={l.href}>{l.label}</a></li>)}

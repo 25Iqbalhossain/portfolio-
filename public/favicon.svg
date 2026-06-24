@@ -1,4 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#F4F1EB"/>
-  <text x="16" y="22" font-family="Georgia, serif" font-size="16" fill="#C1440E" text-anchor="middle">IH</text>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="circ64">
+      <circle cx="32" cy="32" r="30"/>
+    </clipPath>
+  </defs>
+  <!-- Outer accent ring -->
+  <circle cx="32" cy="32" r="32" fill="#C1440E"/>
+  <!-- Inner white gap -->
+  <circle cx="32" cy="32" r="30.5" fill="#F4F1EB"/>
+  <!-- Profile photo clipped to circle -->
+  <image href="/profile1.png" x="2" y="2" width="60" height="60"
+    clip-path="url(#circ64)"
+    preserveAspectRatio="xMidYMin slice"/>
+  <!-- Accent border ring over photo -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#C1440E" stroke-width="2"/>
 </svg>
