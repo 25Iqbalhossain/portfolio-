@@ -85,39 +85,22 @@ export default function Navbar({ theme, onToggleTheme }) {
           flex-shrink: 0;
         }
         .nav-avatar-wrap {
-          position: relative;
-          width: 44px;
-          height: 44px;
           flex-shrink: 0;
         }
-        .nav-avatar-wrap::before {
-          content: '';
-          position: absolute;
-          inset: -2px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, #e0e0e8 0%, #c8c8d8 100%);
-          z-index: 0;
-        }
         .nav-avatar {
-          position: relative;
-          z-index: 1;
-          width: 44px;
-          height: 44px;
+          width: 42px;
+          height: 42px;
           border-radius: 50%;
           object-fit: cover;
           object-position: top center;
-          border: 2px solid #ffffff;
-          box-shadow:
-            0 2px 8px rgba(0, 0, 0, 0.12),
-            0 0 0 1.5px rgba(0, 0, 0, 0.06);
+          border: 1.5px solid #dde1e7;
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.10);
           display: block;
           transition: box-shadow 0.2s ease, transform 0.2s ease;
         }
         .nav-identity:hover .nav-avatar {
-          box-shadow:
-            0 4px 16px rgba(0, 0, 0, 0.16),
-            0 0 0 2px rgba(0, 0, 0, 0.08);
-          transform: scale(1.03);
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.14);
+          transform: scale(1.02);
         }
         .nav-name-block {
           display: flex;
@@ -156,13 +139,8 @@ export default function Navbar({ theme, onToggleTheme }) {
           color: #7d8a99;
         }
         [data-theme='dark'] .nav-avatar {
-          border-color: #1e2a36;
-          box-shadow:
-            0 2px 10px rgba(0, 0, 0, 0.4),
-            0 0 0 1.5px rgba(255, 255, 255, 0.06);
-        }
-        [data-theme='dark'] .nav-avatar-wrap::before {
-          background: linear-gradient(135deg, #1e2a36 0%, #2a3a4a 100%);
+          border-color: #2a3a4a;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
         }
 
         /* ── NAV LINKS ── */
