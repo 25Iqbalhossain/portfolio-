@@ -91,35 +91,71 @@ export default function Hero() {
           min-height: 1.6em;
         }
         .hero-bio {
-          font-size: 0.92rem;
-          color: var(--ink-2);
-          max-width: 540px;
-          line-height: 1.85;
+          max-width: 560px;
           margin-bottom: 2.5rem;
+          background: var(--bg-card);
+          border: 1px solid var(--rule);
+          border-left: 3px solid var(--accent);
+          border-radius: 4px;
+          padding: 1rem 1.25rem;
         }
         .hero-bio-headline {
           font-family: var(--font-mono);
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           color: var(--ink);
           font-weight: 600;
-          letter-spacing: 0.02em;
-          margin-bottom: 0.6rem;
+          letter-spacing: 0.03em;
+          line-height: 1.6;
+          margin-bottom: 0.75rem;
+          padding-bottom: 0.75rem;
+          border-bottom: 1px solid var(--rule);
           display: flex;
           flex-wrap: wrap;
+          gap: 0.25rem 0.5rem;
           align-items: center;
-          gap: 0.4rem 0.6rem;
         }
-        .hero-bio-sep {
+        .hero-bio-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.3rem;
+          background: var(--bg-alt);
+          border: 1px solid var(--rule);
+          border-radius: 3px;
+          padding: 2px 8px;
+          font-size: 0.68rem;
+          color: var(--ink-2);
+          white-space: nowrap;
+        }
+        .hero-bio-badge.accent {
+          background: rgba(193,68,14,0.08);
+          border-color: rgba(193,68,14,0.25);
           color: var(--accent);
-          font-weight: 300;
-          opacity: 0.7;
+          font-weight: 600;
+        }
+        :root[data-theme='dark'] .hero-bio-badge.accent {
+          background: rgba(32,190,255,0.08);
+          border-color: rgba(32,190,255,0.25);
+          color: var(--accent);
         }
         .hero-bio-body {
-          font-size: 0.92rem;
-          color: var(--ink-2);
-          line-height: 1.85;
+          display: flex;
+          flex-direction: column;
+          gap: 0.3rem;
         }
-        .hero-bio-body p { margin: 0 0 0.35rem; }
+        .hero-bio-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.5rem;
+          font-size: 0.8rem;
+          color: var(--ink-2);
+          line-height: 1.5;
+          font-family: var(--font-sans);
+        }
+        .hero-bio-row-icon {
+          font-size: 0.82rem;
+          flex-shrink: 0;
+          margin-top: 0.05rem;
+        }
         .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
         .hero-photo {
           width: 210px;
@@ -202,18 +238,34 @@ export default function Hero() {
               </div>
               <div className="hero-bio">
                 <div className="hero-bio-headline">
-                  <span>💼 Software Engineer (AI) @ Orange Business Development Ltd.</span>
-                  <span className="hero-bio-sep">|</span>
-                  <span>🎓 ML Certified – Cambridge International, UK</span>
-                  <span className="hero-bio-sep">|</span>
-                  <span>☁️ Cloud Computing Certified – NASBA (USA)</span>
+                  <span className="hero-bio-badge accent">💼 Software Engineer (AI) @ Orange Business Development Ltd.</span>
+                  <span className="hero-bio-badge">🎓 ML Certified – Cambridge International, UK</span>
+                  <span className="hero-bio-badge">☁️ Cloud Certified – NASBA (USA)</span>
                 </div>
                 <div className="hero-bio-body">
-                  <p>👨‍💻 AI/ML Engineer with practical experience at Time Research &amp; Innovation Ltd (UK)</p>
-                  <p>📝 Researcher &amp; Reviewer · NextStepWriters Publications BD — AI/ML academic discourse</p>
-                  <p>🎓 BSc in CSE (UITS) &nbsp;·&nbsp; Dhaka 🇧🇩</p>
-                  <p>🔥 Python · TensorFlow · PyTorch · Large Language Models (LLMs)</p>
-                  <p>🔗 <a href="https://github.com/25Iqbalhossain" target="_blank" rel="noreferrer" style={{color:'var(--accent)',textDecoration:'none',fontFamily:'var(--font-mono)',fontSize:'0.82rem'}}>github.com/25Iqbalhossain</a></p>
+                  <div className="hero-bio-row">
+                    <span className="hero-bio-row-icon">👨‍💻</span>
+                    <span>AI/ML Engineer · Time Research &amp; Innovation Ltd (UK)</span>
+                  </div>
+                  <div className="hero-bio-row">
+                    <span className="hero-bio-row-icon">📝</span>
+                    <span>Researcher &amp; Reviewer · NextStepWriters Publications BD — AI/ML academic discourse</span>
+                  </div>
+                  <div className="hero-bio-row">
+                    <span className="hero-bio-row-icon">🎓</span>
+                    <span>BSc in CSE · UITS · Dhaka 🇧🇩</span>
+                  </div>
+                  <div className="hero-bio-row">
+                    <span className="hero-bio-row-icon">🔥</span>
+                    <span>Python · TensorFlow · PyTorch · Large Language Models (LLMs)</span>
+                  </div>
+                  <div className="hero-bio-row">
+                    <span className="hero-bio-row-icon">🔗</span>
+                    <a href="https://github.com/25Iqbalhossain" target="_blank" rel="noreferrer"
+                      style={{color:'var(--accent)',textDecoration:'none',fontFamily:'var(--font-mono)',fontSize:'0.78rem'}}>
+                      github.com/25Iqbalhossain
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="hero-ctas">
