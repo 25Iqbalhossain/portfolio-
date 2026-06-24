@@ -62,22 +62,22 @@ export default function About() {
             <div>
               <h2>Bridging AI research<br /><em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>& production systems</em></h2>
               <p>
-                Md. Iqbal Hossain, also known as Iqbal Hossain, is a Machine Learning Engineer working on deep learning, predictive analytics, and AI applications.
-                I have a proven track record of developing scalable AI solutions across healthcare, government, and publishing sectors.
-                I specialize in LLM architectures, multimodal pipelines, and deploying
+                Md. Iqbal Hossain is a Software Engineer (AI) at Orange Business Development Ltd and an AI/ML Engineer
+                with practical experience across healthcare, government, and publishing sectors.
+                He specializes in LLM architectures, multimodal pipelines, and deploying
                 intelligent systems that operate at real-world scale.
               </p>
               <p>
-                Currently building Smart Government AI frameworks at Orange Bd Ltd, having
-                previously engineered multilingual speech-to-text pipelines and avatar chatbots
-                at Time Research & Innovation Ltd (Portsmouth, UK). My work has reduced
-                onboarding Q&A time by 25–40% and improved speech recognition accuracy by
-                15–25% in production environments.
+                Previously engineered multilingual speech-to-text pipelines and avatar chatbots
+                at Time Research &amp; Innovation Ltd (Portsmouth, UK). Also serving as a Researcher &amp; Reviewer
+                at NextStepWriters Publications BD, contributing to AI/ML academic discourse. My work has reduced
+                onboarding Q&amp;A time by 25–40% and improved speech recognition accuracy by 15–25% in production.
               </p>
               <p>
-                I hold a B.Sc. in Computer Science & Engineering (CGPA 3.67/4.00) from UITS,
-                with certifications from Cambridge International Qualification (UK) and Microsoft
-                Learn. My research has been submitted to ACM TCPS and IEEE TCSS.
+                🎓 BSc in Computer Science &amp; Engineering (CGPA 3.67/4.00) from UITS.
+                ML Certified – Cambridge International Qualification (UK) ·
+                Cloud Computing Certified – NASBA (USA).
+                Research submitted to ACM TCPS and IEEE TCSS.
               </p>
 
               <div className="about-stats">

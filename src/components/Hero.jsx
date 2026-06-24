@@ -163,7 +163,7 @@ export default function Hero() {
         <div className="container">
           <div className="hero-grid animate-fadeup">
             <div>
-              <div className="hero-eyebrow">Machine Learning Engineer · Dhaka, Bangladesh</div>
+              <div className="hero-eyebrow">Software Engineer (AI) @ Orange Business Development · Dhaka 🇧🇩</div>
               <h1 className="hero-name">
                 Md. Iqbal<br /><em>Hossain</em>
               </h1>
@@ -171,10 +171,10 @@ export default function Hero() {
                 <Typewriter texts={roles} />
               </div>
               <p className="hero-bio">
-                Machine Learning Engineer with a focus on Deep Learning, Predictive Analytics,
-                and Full-Stack AI development. CGPA 3.67/4.00 in Computer Science. Building
-                production-ready LLM systems, avatar chatbots, and multilingual speech pipelines
-                that make a measurable difference.
+                AI/ML Engineer with practical experience at Time Research &amp; Innovation Ltd (UK).
+                Researcher &amp; Reviewer in NextStepWriters Publications BD, contributing to AI/ML academic discourse.
+                🎓 BSc in CSE (UITS) · ML Certified – Cambridge International, UK · Cloud Computing Certified – NASBA (USA).
+                🔥 Proficient in Python, TensorFlow, PyTorch, and Large Language Models (LLMs).
               </p>
               <div className="hero-ctas">
                 <a href="#contact" className="btn">Get in touch</a>
@@ -189,7 +189,7 @@ export default function Hero() {
             </div>
             <div className="hero-photo">
               <div className="hero-photo-inner">
-                <img src="/profile.png" alt="Md. Iqbal Hossain"
+                <img src="/profile1.png" alt="Md. Iqbal Hossain"
                   onError={e => {
                     e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
                   }}
