@@ -158,34 +158,79 @@ export default function Hero() {
         }
         .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
         .hero-photo {
-          width: 210px;
+          width: 220px;
           flex-shrink: 0;
           align-self: flex-start;
           margin-top: 1rem;
           display: flex;
           flex-direction: column;
           align-items: center;
+          position: relative;
+        }
+        .hero-photo-frame {
+          position: relative;
+          width: 220px;
+          height: 265px;
+        }
+        /* Accent corner bracket — top-left */
+        .hero-photo-frame::before {
+          content: '';
+          position: absolute;
+          top: -8px; left: -8px;
+          width: 36px; height: 36px;
+          border-top: 2.5px solid var(--accent);
+          border-left: 2.5px solid var(--accent);
+          border-radius: 3px 0 0 0;
+          z-index: 2;
+        }
+        /* Accent corner bracket — bottom-right */
+        .hero-photo-frame::after {
+          content: '';
+          position: absolute;
+          bottom: -8px; right: -8px;
+          width: 36px; height: 36px;
+          border-bottom: 2.5px solid var(--accent);
+          border-right: 2.5px solid var(--accent);
+          border-radius: 0 0 3px 0;
+          z-index: 2;
         }
         .hero-photo-inner {
-          width: 210px; height: 210px;
+          width: 220px; height: 265px;
           overflow: hidden;
           position: relative;
-          border-radius: 50%;
-          border: 3px solid var(--accent);
-          box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--accent);
+          border-radius: 12px;
+          border: 1px solid var(--rule);
+          box-shadow:
+            0 4px 6px rgba(0,0,0,0.04),
+            0 10px 30px rgba(0,0,0,0.10),
+            0 20px 50px rgba(0,0,0,0.07);
         }
         .hero-photo-inner img {
-          width: 100%; height: 100%; object-fit: cover;
+          width: 100%; height: 100%;
+          object-fit: cover;
           object-position: top center;
-          filter: grayscale(10%);
-          border-radius: 50%;
+          display: block;
+          filter: contrast(1.04) brightness(1.01) saturate(1.05);
+          transition: transform 0.5s ease, filter 0.5s ease;
+        }
+        .hero-photo-inner:hover img {
+          transform: scale(1.03);
+          filter: contrast(1.06) brightness(1.02) saturate(1.08);
         }
         .hero-photo-caption {
           font-family: var(--font-mono);
           font-size: 0.65rem; letter-spacing: 0.08em;
           color: var(--ink-3);
-          margin-top: 0.5rem;
-          text-align: right;
+          margin-top: 0.75rem;
+          text-align: center;
+        }
+        @media (max-width: 700px) {
+          #hero { padding-top: 84px; }
+          .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+          .hero-photo { width: 160px; }
+          .hero-photo-frame { width: 160px; height: 195px; }
+          .hero-photo-inner { width: 160px; height: 195px; }
+          .hero-name { font-size: clamp(2.4rem, 10vw, 3.2rem); }
         }
         .hero-socials {
           display: flex; gap: 1rem; margin-top: 0.75rem;
@@ -217,13 +262,7 @@ export default function Hero() {
           background: var(--rule);
           animation: slideIn 1.2s ease both;
         }
-        @media (max-width: 700px) {
-          #hero { padding-top: 84px; }
-          .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-          .hero-photo { width: 140px; }
-          .hero-photo-inner { width: 140px; height: 140px; border-radius: 50%; }
-          .hero-name { font-size: clamp(2.4rem, 10vw, 3.2rem); }
-        }
+
       `}</style>
       <section id="hero" style={{ position: 'relative' }}>
         <div className="container">
@@ -280,12 +319,14 @@ export default function Hero() {
               </div>
             </div>
             <div className="hero-photo">
-              <div className="hero-photo-inner">
-                <img src="/profile.png" alt="Md. Iqbal Hossain"
-                  onError={e => {
-                    e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
-                  }}
-                />
+              <div className="hero-photo-frame">
+                <div className="hero-photo-inner">
+                  <img src="/profile.png" alt="Md. Iqbal Hossain"
+                    onError={e => {
+                      e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
+                    }}
+                  />
+                </div>
               </div>
               <div className="hero-photo-caption">Dhaka, BD — 2025</div>
             </div>
