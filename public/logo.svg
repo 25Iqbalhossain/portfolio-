@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300">
-<rect width="100%" height="100%" fill="white" fill-opacity="0"/>
-<text x="40" y="170" font-family="Inter,Arial,sans-serif" font-size="120" font-weight="700" fill="black">IH</text>
-<line x1="250" y1="50" x2="250" y2="250" stroke="black" stroke-width="4"/>
-<text x="290" y="170" font-family="Inter,Arial,sans-serif" font-size="72" fill="black">Iqbal Hossain</text>
+
+<text x="40" y="170" font-family="Inter,Arial,sans-serif" font-size="120" font-weight="700" fill="white">IH</text>
+<line x1="250" y1="50" x2="250" y2="250" stroke="white" stroke-width="4"/>
+<text x="290" y="170" font-family="Inter,Arial,sans-serif" font-size="72" fill="white">Iqbal Hossain</text>
 </svg>

@@ -53,21 +53,25 @@ export default function Navbar({ theme, onToggleTheme }) {
         .nav {
           position: fixed; top: 0; left: 0; right: 0;
           z-index: 200;
-          background: #ffffff;
-          border-bottom: 1px solid #e9eaec;
-          transition: box-shadow 0.3s ease;
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+          transition: all 0.3s ease;
         }
         .nav.nav--scrolled {
-          box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+          background: rgba(255, 255, 255, 0.95);
         }
 
         /* dark-mode shell */
         [data-theme='dark'] .nav {
-          background: #0d1520;
-          border-bottom-color: #1c2a38;
+          background: rgba(13, 21, 32, 0.85);
+          border-bottom-color: rgba(255, 255, 255, 0.05);
         }
         [data-theme='dark'] .nav.nav--scrolled {
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+          background: rgba(13, 21, 32, 0.95);
         }
 
         /* ── inner layout ── */
@@ -94,60 +98,27 @@ export default function Navbar({ theme, onToggleTheme }) {
           /* no underline, no color change on hover */
         }
 
-        /* ── circular photo ── */
-        .nav-avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          object-fit: cover;
-          object-position: top center;
+        /* ── logo image ── */
+        .logo-img {
           display: block;
-          flex-shrink: 0;
-          /* clean border + single soft shadow, zero accent color */
-          border: 1.5px solid rgba(0, 0, 0, 0.08);
-          box-shadow:
-            0 1px 3px  rgba(0, 0, 0, 0.10),
-            0 4px 12px rgba(0, 0, 0, 0.08);
-          transition: box-shadow 0.25s ease, transform 0.25s ease;
+          width: 180px;
+          height: auto;
+          object-fit: contain;
+          transition: filter 0.3s ease, opacity 0.2s ease;
+          filter: invert(1);
         }
-        .nav-identity:hover .nav-avatar {
-          box-shadow:
-            0 2px 6px  rgba(0, 0, 0, 0.12),
-            0 8px 20px rgba(0, 0, 0, 0.11);
-          transform: scale(1.04);
+        .nav-identity:hover .logo-img {
+          opacity: 0.85;
         }
-        [data-theme='dark'] .nav-avatar {
-          border-color: rgba(255, 255, 255, 0.10);
-          box-shadow:
-            0 1px 3px  rgba(0, 0, 0, 0.35),
-            0 4px 14px rgba(0, 0, 0, 0.30);
+        [data-theme='dark'] .logo-img {
+          filter: invert(0);
         }
 
-        /* ── name + subtitle ── */
-        .nav-identity-text {
-          display: flex;
-          flex-direction: column;
-          gap: 1px;
-          line-height: 1;
+        @media (max-width: 768px) {
+          .logo-img {
+            width: 140px;
+          }
         }
-        .nav-identity-name {
-          font-family: 'Inter', system-ui, sans-serif;
-          font-size: 0.925rem;
-          font-weight: 700;
-          color: #0d1b2e;
-          letter-spacing: -0.02em;
-        }
-        .nav-identity-role {
-          font-family: 'Inter', system-ui, sans-serif;
-          font-size: 0.70rem;
-          font-weight: 400;
-          color: #9aa3ae;
-          letter-spacing: 0.01em;
-        }
-
-        /* dark overrides */
-        [data-theme='dark'] .nav-identity-name { color: #dde6f0; }
-        [data-theme='dark'] .nav-identity-role { color: #6b7e92; }
 
         /* ══════════════════════════════════════════
            RIGHT  — NAV LINKS + TOGGLE + HAMBURGER
@@ -164,70 +135,81 @@ export default function Navbar({ theme, onToggleTheme }) {
           margin: 0; padding: 0;
         }
         .nav-links a {
+          position: relative;
           font-family: 'Inter', system-ui, sans-serif;
-          font-size: 0.73rem;
-          font-weight: 500;
-          letter-spacing: 0.07em;
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
           color: #5a6472;
           text-decoration: none;
-          transition: color 0.15s;
+          padding: 0.5rem 0.8rem;
+          border-radius: 6px;
+          transition: all 0.2s ease;
         }
-        .nav-links a:hover { color: #0d1b2e; }
-        [data-theme='dark'] .nav-links a       { color: #8a9aaa; }
-        [data-theme='dark'] .nav-links a:hover { color: #dde6f0; }
+        .nav-links a:hover {
+          color: #0d1b2e;
+          background: rgba(0, 0, 0, 0.04);
+        }
+        [data-theme='dark'] .nav-links a       { color: #9aa3ae; }
+        [data-theme='dark'] .nav-links a:hover { 
+          color: #fff;
+          background: rgba(255, 255, 255, 0.06);
+        }
 
         /* ── theme toggle ── */
         .theme-toggle {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          width: 34px; height: 34px;
-          border-radius: 8px;
-          border: 1px solid #e2e5e9;
-          background: #f7f8fa;
+          width: 36px; height: 36px;
+          border-radius: 50%;
+          border: 1px solid rgba(0,0,0,0.08);
+          background: #ffffff;
           color: #4a5568;
           cursor: pointer;
-          transition: background 0.15s, border-color 0.15s,
-                      color 0.15s, transform 0.15s;
+          transition: all 0.2s ease;
           flex-shrink: 0;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-        .theme-toggle svg { width: 15px; height: 15px; display: block; }
+        .theme-toggle svg { width: 16px; height: 16px; display: block; }
         .theme-toggle:hover {
-          background: #edf0f3;
-          border-color: #c8cdd4;
+          background: #f7f8fa;
           transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.06);
         }
         .theme-toggle:active { transform: translateY(0); }
         [data-theme='dark'] .theme-toggle {
-          background: #142030;
-          border-color: #1e2f42;
-          color: #8a9aaa;
+          background: #1e293b;
+          border-color: rgba(255,255,255,0.1);
+          color: #cbd5e1;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         [data-theme='dark'] .theme-toggle:hover {
-          background: #1a2d40;
-          border-color: #2a3f55;
+          background: #334155;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         /* ── hamburger ── */
         .nav-hamburger {
           display: none;
           flex-direction: column;
-          gap: 4px;
+          gap: 5px;
           background: none;
           border: none;
           cursor: pointer;
-          padding: 4px;
+          padding: 8px;
           flex-shrink: 0;
         }
         .nav-hamburger span {
           display: block;
-          width: 20px; height: 1.5px;
-          background: #4a5568;
+          width: 22px; height: 2px;
+          background: #0d1b2e;
           border-radius: 2px;
-          transition: background 0.2s;
+          transition: all 0.2s ease;
         }
-        [data-theme='dark'] .nav-hamburger span { background: #8a9aaa; }
+        [data-theme='dark'] .nav-hamburger span { background: #dde6f0; }
+        .nav-hamburger:hover span { opacity: 0.7; }
 
         /* ── sr-only ── */
         .sr-only {
@@ -282,7 +264,6 @@ export default function Navbar({ theme, onToggleTheme }) {
           .nav-links    { display: none; }
           .nav-hamburger { display: flex; }
           .nav-inner    { padding: 0 1.25rem; height: 58px; }
-          .nav-avatar   { width: 36px; height: 36px; }
         }
         @media (min-width: 701px) {
           .nav-mobile-menu { display: none !important; }
@@ -292,18 +273,9 @@ export default function Navbar({ theme, onToggleTheme }) {
       {/* ── NAV BAR ── */}
       <nav className={`nav${scrolled ? ' nav--scrolled' : ''}`} role="banner">
         <div className="nav-inner">
-          {/* LEFT: circular avatar + name + subtitle */}
+          {/* LEFT: logo */}
           <a href="#hero" className="nav-identity" aria-label="Go to top">
-            <img
-              src="/logo.svg"
-              alt="Logo"
-              className="nav-avatar"
-              id="nav-avatar-img"
-            />
-            <div className="nav-identity-text">
-              <span className="nav-identity-name">Iqbal Hossain</span>
-              <span className="nav-identity-role">AI Engineer</span>
-            </div>
+            <img src="/logo.svg" alt="Iqbal Hossain Logo" className="logo-img" />
           </a>
 
           {/* RIGHT: nav links + theme toggle + hamburger */}
