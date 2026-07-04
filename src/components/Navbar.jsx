@@ -292,6 +292,7 @@ export default function Navbar({ theme, onToggleTheme }) {
       {/* ── NAV BAR ── */}
       <nav className={`nav${scrolled ? ' nav--scrolled' : ''}`} role="banner">
         <div className="nav-inner">
+<<<<<<< Updated upstream
 
           {/* LEFT: circular avatar + name + subtitle */}
           <a href="#hero" className="nav-identity" aria-label="Go to top">
@@ -315,6 +316,14 @@ export default function Navbar({ theme, onToggleTheme }) {
                   <a href={l.href}>{l.label}</a>
                 </li>
               ))}
+=======
+          <a href="#hero" className="nav-logo">
+            <img src="/logo.svg" alt="Logo" style={{ height: '32px' }} />
+          </a>
+          <div className="nav-actions">
+            <ul className="nav-links">
+              {links.map(l => <li key={l.label}><a href={l.href}>{l.label}</a></li>)}
+>>>>>>> Stashed changes
             </ul>
 
             <button
