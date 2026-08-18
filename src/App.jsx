@@ -11,31 +11,41 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './index.css';
 
-const getPreferredTheme = () => {
-  if (typeof window === 'undefined') return 'light';
-  const stored = window.localStorage.getItem('theme');
-  if (stored === 'dark' || stored === 'light') return stored;
-  if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) return 'dark';
-  return 'light';
-};
+function getInitialTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light' || saved === 'dark') {
+    return saved;
+  }
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 
 export default function App() {
-  const [theme, setTheme] = useState(getPreferredTheme);
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
   useEffect(() => {
-    const root = document.documentElement;
-    root.setAttribute('data-theme', theme);
-    window.localStorage.setItem('theme', theme);
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Sync with OS if no local storage preference (optional, but good practice).
+  useEffect(() => {
+    const fn = (e) => {
+      if (!localStorage.getItem('theme')) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+    const m = window.matchMedia?.('(prefers-color-scheme: dark)');
+    m?.addEventListener('change', fn);
+    return () => m?.removeEventListener('change', fn);
+  }, []);
+
   return (
-    <div className="app">
-      <Navbar
-        theme={theme}
-        onToggleTheme={() => setTheme(t => (t === 'dark' ? 'light' : 'dark'))}
-      />
+    <div className="app-shell">
+      <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main>
-        <Hero />
+        <Hero theme={theme} onToggleTheme={toggleTheme} />
         <About />
         <Experience />
         <Skills />

@@ -1,96 +1,29 @@
 const skillGroups = [
-  {
-    label: 'AI / ML Core',
-    color: 'var(--accent)',
-    skills: ['Machine Learning', 'Deep Learning', 'Natural Language Processing', 'Large Language Models (LLM)', 'RAG Systems', 'AI Agents', 'Predictive Analytics', 'Computer Vision'],
-  },
-  {
-    label: 'Frameworks & Libraries',
-    color: 'var(--accent-2)',
-    skills: ['PyTorch', 'TensorFlow', 'fastai', 'LangChain', 'Hugging Face Transformers', 'Scikit-learn', 'OpenCV', 'Whisper'],
-  },
-  {
-    label: 'Backend & APIs',
-    color: 'var(--accent-3)',
-    skills: ['Python', 'FastAPI', 'Flask', 'RESTful API', 'Microservices', 'PostgreSQL', 'MongoDB', 'Redis'],
-  },
-  {
-    label: 'Infrastructure & DevOps',
-    color: '#8B6914',
-    skills: ['AWS', 'Docker', 'Kubernetes', 'Linux', 'Git / GitHub / GitLab', 'Jenkins', 'CI/CD', 'Postman'],
-  },
-  {
-    label: 'Other Technologies',
-    color: '#5A3E8F',
-    skills: ['JavaScript', 'C++ (Competitive Programming)', 'Flutter / Dart', 'Firebase', 'HTML5 / CSS3', 'Jira', 'D-ID API', 'HeyGen'],
-  },
+  { title: 'AI and Machine Learning', skills: ['Machine Learning', 'Deep Learning', 'Predictive Analytics', 'Computer Vision', 'PyTorch', 'TensorFlow', 'fastai', 'Scikit-learn', 'OpenCV'] },
+  { title: 'Generative AI', skills: ['LLM', 'RAG Systems', 'AI Agents', 'LangChain', 'Hugging Face Transformers', 'D-ID API', 'HeyGen'] },
+  { title: 'NLP and Speech', skills: ['Natural Language Processing', 'Whisper', 'Multilingual AI', 'Speech-to-Text'] },
+  { title: 'Backend and Data', skills: ['Python', 'FastAPI', 'Flask', 'RESTful APIs', 'Microservices', 'PostgreSQL', 'MongoDB', 'Redis'] },
+  { title: 'DevOps and Cloud', skills: ['AWS', 'Docker', 'Kubernetes', 'Linux', 'Git', 'GitHub', 'GitLab', 'Jenkins', 'CI/CD', 'Postman'] },
+  { title: 'Product and Web', skills: ['JavaScript', 'C++', 'Flutter', 'Dart', 'Firebase', 'HTML', 'CSS', 'Jira'] },
 ];
 
 export default function Skills() {
   return (
-    <>
-      <style>{`
-        .skills-wrapper {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 2.5rem;
-        }
-        .skill-group-label {
-          font-family: var(--font-mono);
-          font-size: 0.68rem;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          margin-bottom: 1rem;
-          display: flex; align-items: center; gap: 0.6rem;
-        }
-        .skill-group-label::before {
-          content: '';
-          display: inline-block;
-          width: 6px; height: 6px;
-          border-radius: 50%;
-          background: currentColor;
-        }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-        .skill-chip {
-          font-family: var(--font-mono);
-          font-size: 0.72rem;
-          padding: 4px 10px;
-          background: var(--bg-alt);
-          border: 1px solid var(--rule);
-          color: var(--ink-2);
-          border-radius: 2px;
-          transition: all 0.15s;
-          cursor: default;
-        }
-        .skill-chip:hover {
-          background: var(--ink);
-          color: var(--bg);
-          border-color: var(--ink);
-        }
-      `}</style>
-      <section id="skills">
-        <div className="container">
-          <span className="section-label">Skills & Tools</span>
-          <h2>Technical Proficiencies</h2>
-          <p style={{ marginBottom: '3rem', maxWidth: '480px' }}>
-            Technologies I work with daily — from research to production deployment.
-          </p>
-          <div className="skills-wrapper">
-            {skillGroups.map(g => (
-              <div key={g.label}>
-                <div className="skill-group-label" style={{ color: g.color }}>
-                  {g.label}
-                </div>
-                <div className="skill-tags">
-                  {g.skills.map(s => (
-                    <span key={s} className="skill-chip">{s}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+    <section id="skills" className="section skills-section" aria-labelledby="skills-title">
+      <div className="container">
+        <div className="section-header section-header--compact">
+          <div className="section-index">03 <span>Capabilities</span></div>
+          <div><p className="eyebrow">Technical practice</p><h2 id="skills-title">Tools that move ideas into production.</h2></div>
         </div>
-      </section>
-    </>
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <article className="skill-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <div className="tag-list">{group.skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

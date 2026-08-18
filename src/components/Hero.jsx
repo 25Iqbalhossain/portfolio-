@@ -1,340 +1,144 @@
-import { useState, useEffect } from 'react';
-
-const roles = [
-  'Machine Learning Engineer',
-  'LLM & RAG Architect',
-  'AI Research Consultant',
-  'Software Engineer (AI)',
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Research', href: '#publications' },
+  { label: 'Contact', href: '#contact' },
 ];
 
-function Typewriter({ texts }) {
-  const [display, setDisplay] = useState('');
-  const [idx, setIdx] = useState(0);
-  const [typing, setTyping] = useState(true);
+const socialLinks = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/25Iqbalhossain',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="hero-social-icon">
+        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.49.5.09.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/25-iqbal-hossain/',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="hero-social-icon">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Kaggle',
+    href: 'https://www.kaggle.com/iqbalhossain25',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="hero-social-icon">
+        <path d="M18.825 23.859a.26.26 0 0 1-.26.141h-3.063a.515.515 0 0 1-.399-.2l-5.136-6.942-1.647 1.647v5.235a.26.26 0 0 1-.26.26H5.326a.26.26 0 0 1-.26-.26V.26A.26.26 0 0 1 5.326 0H8.06a.26.26 0 0 1 .26.26v13.078l6.456-6.858a.553.553 0 0 1 .399-.179h3.163a.26.26 0 0 1 .2.44l-6.6 6.858 6.887 9.82a.26.26 0 0 1 0 .44z" />
+      </svg>
+    ),
+  },
+];
 
-  useEffect(() => {
-    const current = texts[idx % texts.length];
-    let t;
-    if (typing) {
-      if (display.length < current.length) {
-        t = setTimeout(() => setDisplay(current.slice(0, display.length + 1)), 55);
-      } else {
-        t = setTimeout(() => setTyping(false), 2200);
-      }
-    } else {
-      if (display.length > 0) {
-        t = setTimeout(() => setDisplay(display.slice(0, -1)), 25);
-      } else {
-        setIdx(i => i + 1);
-        setTyping(true);
-      }
-    }
-    return () => clearTimeout(t);
-  }, [display, typing, idx, texts]);
+const expertise = ['Generative AI', 'Machine Learning', 'NLP', 'Intelligent Search', 'Data Engineering', 'MLOps'];
 
+export default function Hero({ theme, onToggleTheme }) {
   return (
-    <span>
-      {display}
-      <span style={{ animation: 'blink 1s step-end infinite', color: 'var(--accent)' }}>_</span>
-    </span>
-  );
-}
+    <section id="hero" className="hero-canvas" aria-labelledby="hero-name">
+      {/* -- hero-internal navbar -- */}
+      <nav className="hero-nav" aria-label="Hero navigation">
+        <a className="hero-nav-brand" href="#hero">
+          <img src="/favicon.svg" alt="" />
+          <span>IQBAL</span>
+        </a>
+        <div className="hero-nav-links">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href}>{l.label}</a>
+          ))}
+        </div>
+        <div className="hero-nav-actions">
+          <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={theme === 'dark'}>
+            {theme === 'dark' ? (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>) : (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.5 14.2A8 8 0 0 1 9.8 3.5a8.3 8.3 0 1 0 10.7 10.7Z" /></svg>)}
+          </button>
+          <a className="hero-nav-cv" href="/Md_Iqbal_Hossain_CV.pdf" download>
+            Download CV <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </nav>
 
-export default function Hero() {
-  return (
-    <>
-      <style>{`
-        #hero {
-          min-height: 100vh;
-          display: flex; align-items: center;
-          padding-top: 96px;
-          border-top: none;
-        }
-        .hero-grid {
-          display: grid;
-          grid-template-columns: 1fr auto;
-          gap: 4rem;
-          align-items: end;
-          padding-bottom: 4rem;
-        }
-        .hero-eyebrow {
-          font-family: var(--font-mono);
-          font-size: 0.72rem;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: var(--accent);
-          margin-bottom: 1.25rem;
-          display: flex; align-items: center; gap: 0.75rem;
-        }
-        .hero-eyebrow::before {
-          content: '';
-          display: block; width: 2rem; height: 1px;
-          background: var(--accent);
-        }
-        .hero-name {
-          font-family: var(--font-serif);
-          font-size: clamp(3rem, 7vw, 5.5rem);
-          line-height: 1.05;
-          letter-spacing: -0.03em;
-          color: var(--ink);
-          margin-bottom: 1.25rem;
-        }
-        .hero-name em {
-          font-style: italic;
-          color: var(--accent);
-        }
-        .hero-role {
-          font-family: var(--font-mono);
-          font-size: clamp(0.85rem, 2vw, 1.05rem);
-          color: var(--ink-2);
-          margin-bottom: 2rem;
-          min-height: 1.6em;
-        }
-        .hero-bio {
-          max-width: 560px;
-          margin-bottom: 2.5rem;
-          background: var(--bg-card);
-          border: 1px solid var(--rule);
-          border-left: 3px solid var(--accent);
-          border-radius: 4px;
-          padding: 1rem 1.25rem;
-        }
-        .hero-bio-headline {
-          font-family: var(--font-mono);
-          font-size: 0.72rem;
-          color: var(--ink);
-          font-weight: 600;
-          letter-spacing: 0.03em;
-          line-height: 1.6;
-          margin-bottom: 0.75rem;
-          padding-bottom: 0.75rem;
-          border-bottom: 1px solid var(--rule);
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.25rem 0.5rem;
-          align-items: center;
-        }
-        .hero-bio-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.3rem;
-          background: var(--bg-alt);
-          border: 1px solid var(--rule);
-          border-radius: 3px;
-          padding: 2px 8px;
-          font-size: 0.68rem;
-          color: var(--ink-2);
-          white-space: nowrap;
-        }
-        .hero-bio-badge.accent {
-          background: rgba(193,68,14,0.08);
-          border-color: rgba(193,68,14,0.25);
-          color: var(--accent);
-          font-weight: 600;
-        }
-        :root[data-theme='dark'] .hero-bio-badge.accent {
-          background: rgba(32,190,255,0.08);
-          border-color: rgba(32,190,255,0.25);
-          color: var(--accent);
-        }
-        .hero-bio-body {
-          display: flex;
-          flex-direction: column;
-          gap: 0.3rem;
-        }
-        .hero-bio-row {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.5rem;
-          font-size: 0.8rem;
-          color: var(--ink-2);
-          line-height: 1.5;
-          font-family: var(--font-sans);
-        }
-        .hero-bio-row-icon {
-          font-size: 0.82rem;
-          flex-shrink: 0;
-          margin-top: 0.05rem;
-        }
-        .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .hero-photo {
-          width: 220px;
-          flex-shrink: 0;
-          align-self: flex-start;
-          margin-top: 1rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          position: relative;
-        }
-        .hero-photo-frame {
-          position: relative;
-          width: 220px;
-          height: 265px;
-        }
-        /* Accent corner bracket — top-left */
-        .hero-photo-frame::before {
-          content: '';
-          position: absolute;
-          top: -8px; left: -8px;
-          width: 36px; height: 36px;
-          border-top: 2.5px solid var(--accent);
-          border-left: 2.5px solid var(--accent);
-          border-radius: 3px 0 0 0;
-          z-index: 2;
-        }
-        /* Accent corner bracket — bottom-right */
-        .hero-photo-frame::after {
-          content: '';
-          position: absolute;
-          bottom: -8px; right: -8px;
-          width: 36px; height: 36px;
-          border-bottom: 2.5px solid var(--accent);
-          border-right: 2.5px solid var(--accent);
-          border-radius: 0 0 3px 0;
-          z-index: 2;
-        }
-        .hero-photo-inner {
-          width: 220px; height: 265px;
-          overflow: hidden;
-          position: relative;
-          border-radius: 12px;
-          border: 1px solid var(--rule);
-          box-shadow:
-            0 4px 6px rgba(0,0,0,0.04),
-            0 10px 30px rgba(0,0,0,0.10),
-            0 20px 50px rgba(0,0,0,0.07);
-        }
-        .hero-photo-inner img {
-          width: 100%; height: 100%;
-          object-fit: cover;
-          object-position: top center;
-          display: block;
-          filter: contrast(1.04) brightness(1.01) saturate(1.05);
-          transition: transform 0.5s ease, filter 0.5s ease;
-        }
-        .hero-photo-inner:hover img {
-          transform: scale(1.03);
-          filter: contrast(1.06) brightness(1.02) saturate(1.08);
-        }
-        .hero-photo-caption {
-          font-family: var(--font-mono);
-          font-size: 0.65rem; letter-spacing: 0.08em;
-          color: var(--ink-3);
-          margin-top: 0.75rem;
-          text-align: center;
-        }
-        @media (max-width: 700px) {
-          #hero { padding-top: 84px; }
-          .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-          .hero-photo { width: 160px; }
-          .hero-photo-frame { width: 160px; height: 195px; }
-          .hero-photo-inner { width: 160px; height: 195px; }
-          .hero-name { font-size: clamp(2.4rem, 10vw, 3.2rem); }
-        }
-        .hero-socials {
-          display: flex; gap: 1rem; margin-top: 0.75rem;
-          flex-wrap: wrap;
-        }
-        .hero-socials a {
-          font-family: var(--font-mono);
-          font-size: 0.68rem;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: var(--ink-3);
-          text-decoration: none;
-          transition: color 0.15s;
-        }
-        .hero-socials a:hover { color: var(--accent); }
-        .hero-scroll {
-          position: absolute; bottom: 2rem; left: 50%;
-          transform: translateX(-50%);
-          font-family: var(--font-mono);
-          font-size: 0.65rem; letter-spacing: 0.15em;
-          color: var(--ink-3);
-          text-transform: uppercase;
-          display: flex; flex-direction: column;
-          align-items: center; gap: 0.4rem;
-        }
-        .hero-scroll::after {
-          content: '';
-          width: 1px; height: 40px;
-          background: var(--rule);
-          animation: slideIn 1.2s ease both;
-        }
+      {/* -- decorative background outline circles (entering from edges left and right) -- */}
+      <svg className="hero-bg-circles" aria-hidden="true">
+        <circle cx="-170" cy="115%" r="420" />
+        <circle cx="calc(100% + 170px)" cy="-15%" r="420" />
+      </svg>
 
-      `}</style>
-      <section id="hero" style={{ position: 'relative' }}>
-        <div className="container">
-          <div className="hero-grid animate-fadeup">
-            <div>
-              <div className="hero-eyebrow">Software Engineer (AI) @ Orange Business Development · Dhaka 🇧🇩</div>
-              <h1 className="hero-name">
-                Md. Iqbal<br /><em>Hossain</em>
-              </h1>
-              <div className="hero-role">
-                <Typewriter texts={roles} />
-              </div>
-              <div className="hero-bio">
-                <div className="hero-bio-headline">
-                  <span className="hero-bio-badge accent">💼 Software Engineer (AI) @ Orange Business Development Ltd.</span>
-                  <span className="hero-bio-badge">🎓 ML Certified – Cambridge International, UK</span>
-                  <span className="hero-bio-badge">☁️ Cloud Certified – NASBA (USA)</span>
-                </div>
-                <div className="hero-bio-body">
-                  <div className="hero-bio-row">
-                    <span className="hero-bio-row-icon">👨‍💻</span>
-                    <span>AI/ML Engineer · Time Research &amp; Innovation Ltd (UK)</span>
-                  </div>
-                  <div className="hero-bio-row">
-                    <span className="hero-bio-row-icon">📝</span>
-                    <span>Researcher &amp; Reviewer · NextStepWriters Publications BD — AI/ML academic discourse</span>
-                  </div>
-                  <div className="hero-bio-row">
-                    <span className="hero-bio-row-icon">🎓</span>
-                    <span>BSc in CSE · UITS · Dhaka 🇧🇩</span>
-                  </div>
-                  <div className="hero-bio-row">
-                    <span className="hero-bio-row-icon">🔥</span>
-                    <span>Python · TensorFlow · PyTorch · Large Language Models (LLMs)</span>
-                  </div>
-                  <div className="hero-bio-row">
-                    <span className="hero-bio-row-icon">🔗</span>
-                    <a href="https://github.com/25Iqbalhossain" target="_blank" rel="noreferrer"
-                      style={{color:'var(--accent)',textDecoration:'none',fontFamily:'var(--font-mono)',fontSize:'0.78rem'}}>
-                      github.com/25Iqbalhossain
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="hero-ctas">
-                <a href="#contact" className="btn">Get in touch</a>
-                <a href="#projects" className="btn btn--ghost">View work →</a>
-              </div>
-              <div className="hero-socials" style={{ marginTop: '1.75rem' }}>
-                <a href="https://github.com/25Iqbalhossain" target="_blank" rel="noreferrer">GitHub</a>
-                <a href="https://www.linkedin.com/in/25-iqbal-hossain/" target="_blank" rel="noreferrer">LinkedIn</a>
-                <a href="mailto:25ikbalhossain@gmail.com">Email</a>
-                <a href="tel:+8801788774822">+880 1788 774822</a>
-              </div>
-            </div>
-            <div className="hero-photo">
-              <div className="hero-photo-frame">
-                <div className="hero-photo-inner">
-                  <img src="/profile.png" alt="Md. Iqbal Hossain"
-                    onError={e => {
-                      e.target.parentNode.innerHTML = `<div style="width:100%;height:100%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:3rem;color:var(--ink-3)">IH</div>`;
-                    }}
-                  />
-                </div>
-              </div>
-              <div className="hero-photo-caption">Dhaka, BD — 2025</div>
-            </div>
+      {/* -- social links — left vertical strip -- */}
+      <div className="hero-socials" aria-label="Social profiles">
+        <span className="socials-label">CONNECT</span>
+        <div className="socials-links">
+          {socialLinks.map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="hero-social-link" title={s.label}>
+              {s.icon} <span className="hero-social-label">{s.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      {/* -- metadata — right vertical area -- */}
+      <div className="hero-metadata" aria-label="Professional info">
+        <div className="meta-group">
+          <span className="meta-label">BASED IN</span>
+          <span className="meta-value">DHAKA, BANGLADESH</span>
+        </div>
+        <div className="meta-group">
+          <span className="meta-label">FOCUS</span>
+          <span className="meta-value">AI · ML · INTELLIGENT SYSTEMS</span>
+        </div>
+      </div>
+      
+      {/* -- portrait composition group -- */}
+      <div className="hero-portrait-composition">
+        {/* background organic line */}
+        <svg className="hero-line" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M 680 180 C 800 120, 850 280, 750 320 C 600 370, 450 420, 300 380 C 150 340, 70 480, 200 520 C 350 560, 550 500, 700 530" />
+        </svg>
+
+        <div className="hero-portrait">
+          <div className="portrait-arch">
+            <img src="/profile.png" alt="Md. Iqbal Hossain" className="portrait-image" />
           </div>
         </div>
-        <div className="hero-scroll animate-fadeup-3">scroll</div>
-      </section>
-    </>
+
+        {/* -- circular ring decoration -- */}
+        <div className="hero-orbit-badge" aria-hidden="true">
+          <svg className="hero-orbit-svg" viewBox="0 0 140 140" overflow="visible">
+            <defs>
+              <path id="heroOrbitPath" d="M 70,70 m -56,0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0" fill="none" />
+            </defs>
+            <g className="hero-orbit-rotator">
+              <text className="hero-orbit-text">
+                <textPath href="#heroOrbitPath" startOffset="0%">
+                 MACHINE LEARNING · DEEP LEARNING · NLP · LLM · FASTAPI · AWS ·&nbsp;
+                </textPath>
+              </text>
+            </g>
+          </svg>
+          <span className="hero-orbit-center" />
+        </div>
+      </div>
+
+      {/* -- identity — below portrait -- */}
+      <div className="hero-identity">
+        <h1 id="hero-name">MD. IQBAL HOSSAIN</h1>
+        <p className="hero-role">
+          AI Engineer <span className="role-sep">//</span> Machine Learning <span className="role-sep">//</span> Intelligent Systems
+        </p>
+      </div>
+
+      {/* -- expertise strip — bottom of canvas -- */}
+      <div className="hero-expertise" aria-label="Areas of expertise">
+        {expertise.map((item) => (
+          <span key={item}>{item}</span>
+        ))}
+      </div>
+    </section>
   );
 }
+
 

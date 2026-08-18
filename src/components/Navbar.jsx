@@ -1,47 +1,54 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const links = [
-  { label: 'About',        href: '#about' },
-  { label: 'Experience',   href: '#experience' },
-  { label: 'Skills',       href: '#skills' },
-  { label: 'Projects',     href: '#projects' },
-  { label: 'Kaggle',       href: '#kaggle' },
-  { label: 'Publications', href: '#publications' },
-  { label: 'Contact',      href: '#contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Research', href: '#publications' },
+  { label: 'Contact', href: '#contact' },
 ];
 
-function SunIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
-      stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-      <circle cx="12" cy="12" r="4.5" />
-      <path d="M12 2.5v3.2M12 18.3v3.2M4.3 4.3l2.3 2.3M17.4 17.4l2.3 2.3M2.5 12h3.2M18.3 12h3.2M4.3 19.7l2.3-2.3M17.4 6.6l2.3-2.3" />
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none"
-      stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round">
-      <path d="M15.2 2.8c-4 1-7 4.6-7 9 0 5.2 4.2 9.4 9.4 9.4 1.8 0 3.4-.5 4.8-1.4-1.3.3-2.7.2-4-.2-3.9-1.3-6.7-5-6.7-9.2 0-2.4.9-4.6 2.4-6.2z" />
-    </svg>
-  );
-}
-
 export default function Navbar({ theme, onToggleTheme }) {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen]         = useState(false);
-  const isDark       = theme === 'dark';
-  const nextLabel    = isDark ? 'Light' : 'Dark';
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 16);
+    const onKeyDown = (event) => event.key === 'Escape' && setIsOpen(false);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('keydown', onKeyDown);
+    };
   }, []);
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
+    <header className={`site-header ${isScrolled ? 'site-header--scrolled' : ''}`}>
+      <nav className="nav-shell container" aria-label="Primary navigation">
+        <a className="nav-identity" href="#hero" onClick={closeMenu} aria-label="Back to top">
+          <img src="/favicon.svg" alt="" />
+          <span>IQBAL</span>
+          <i aria-hidden="true" />
+        </a>
+
+        <div className="nav-links">
+          {links.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+        </div>
+
+        <div className="nav-actions">
+          <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={theme === 'dark'}>
+            {theme === 'dark' ? (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>) : (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.5 14.2A8 8 0 0 1 9.8 3.5a8.3 8.3 0 1 0 10.7 10.7Z" /></svg>)}
+          </button>
+          <a className="nav-cv" href="/Md_Iqbal_Hossain_CV.pdf" download>
+            <span>Download CV</span><b aria-hidden="true">↓</b>
+          </a>
+          <button className="menu-button" type="button" aria-label="Toggle navigation" aria-expanded={isOpen} aria-controls="mobile-navigation" onClick={() => setIsOpen((open) => !open)}>
+            <span /><span />
+          </button>
     <>
       <style>{`
         /* ── Google Font ── */
@@ -313,18 +320,12 @@ export default function Navbar({ theme, onToggleTheme }) {
         </div>
       </nav>
 
-      {/* MOBILE DROPDOWN */}
-      {open && (
-        <div
-          className="nav-mobile-menu"
-          id="nav-mobile-menu"
-          onClick={() => setOpen(false)}
-        >
-          {links.map(l => (
-            <a key={l.label} href={l.href}>{l.label}</a>
-          ))}
+      <div id="mobile-navigation" className={`mobile-nav ${isOpen ? 'mobile-nav--open' : ''}`} aria-hidden={!isOpen}>
+        <div className="container mobile-nav-inner">
+          {links.map((link) => <a key={link.href} href={link.href} tabIndex={isOpen ? 0 : -1} onClick={closeMenu}>{link.label}</a>)}
+          <a href="/Md_Iqbal_Hossain_CV.pdf" download tabIndex={isOpen ? 0 : -1} onClick={closeMenu}>Download CV</a>
         </div>
-      )}
-    </>
+      </div>
+    </header>
   );
 }
