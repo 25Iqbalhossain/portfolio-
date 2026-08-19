@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Kaggle from './components/Kaggle';
 import Publications from './components/Publications';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './index.css';
@@ -29,7 +30,7 @@ export default function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Sync with OS if no local storage preference (optional, but good practice).
+  // Sync with OS if no local storage preference.
   useEffect(() => {
     const fn = (e) => {
       if (!localStorage.getItem('theme')) {
@@ -52,6 +53,7 @@ export default function App() {
         <Projects />
         <Kaggle />
         <Publications />
+        <Certificates />
         <Contact />
       </main>
       <Footer />

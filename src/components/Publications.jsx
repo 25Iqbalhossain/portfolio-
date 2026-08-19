@@ -3,7 +3,8 @@ const publications = [
     status: 'Published',
     year: '2025',
     title: 'A machine-learning framework for enhancing cognitive function using tDCS and Brain Gym intervention',
-    venue: 'RAAICON 2025',
+    venue: 'IEEE Access',
+    url: 'https://ieeexplore.ieee.org/document/11502543/',
     description: 'Investigates how a combined tDCS and Brain Gym protocol, guided by a machine learning framework, can enhance human cognitive performance.',
   },
   {
@@ -28,14 +29,37 @@ export default function Publications() {
       <div className="container">
         <div className="section-header">
           <div className="section-index">06 <span>Research</span></div>
-          <div><p className="eyebrow">Research and publications</p><h2 id="publications-title">Questions worth carrying into the world.</h2></div>
+          <div>
+            <p className="eyebrow">Research and publications</p>
+            <h2 id="publications-title">Questions worth carrying into the world.</h2>
+          </div>
         </div>
         <div className="publications-list">
           {publications.map((publication, index) => (
             <article className="publication-row" key={publication.title}>
               <div className="publication-number">{String(index + 1).padStart(2, '0')}</div>
-              <div className="publication-meta"><span>{publication.status}</span><span>{publication.year}</span></div>
-              <div className="publication-content"><h3>{publication.title}</h3><p className="publication-venue">{publication.venue}</p><p>{publication.description}</p></div>
+              <div className="publication-meta">
+                <span>{publication.status}</span>
+                <span>{publication.year}</span>
+              </div>
+              <div className="publication-content">
+                <h3>
+                  {publication.url ? (
+                    <a href={publication.url} target="_blank" rel="noreferrer" className="publication-title-link">
+                      {publication.title} <span className="pub-link-icon" aria-hidden="true">&nearr;</span>
+                    </a>
+                  ) : (
+                    publication.title
+                  )}
+                </h3>
+                <p className="publication-venue">{publication.venue}</p>
+                <p>{publication.description}</p>
+                {publication.url && (
+                  <a href={publication.url} target="_blank" rel="noreferrer" className="publication-link-btn">
+                    View on IEEE Xplore <span aria-hidden="true">&nearr;</span>
+                  </a>
+                )}
+              </div>
             </article>
           ))}
         </div>

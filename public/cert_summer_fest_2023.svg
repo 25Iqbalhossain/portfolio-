@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" width="1600" height="1100">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7" />
+      <stop offset="100%" stop-color="#f4efe6" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#aa7c11" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1600" height="1100" fill="url(#bgGrad)" />
+  
+  <!-- Outer & Inner Borders -->
+  <rect x="40" y="40" width="1520" height="1020" fill="none" stroke="#1f8d64" stroke-width="4" rx="16" />
+  <rect x="56" y="56" width="1488" height="988" fill="none" stroke="#d4af37" stroke-width="2" rx="12" />
+  
+  <!-- Header Banner -->
+  <text x="800" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#1f8d64" letter-spacing="6">UNIVERSITY OF INFORMATION TECHNOLOGY &amp; SCIENCES</text>
+  <text x="800" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#626861" letter-spacing="4">DEPARTMENT OF COMPUTER SCIENCE &amp; ENGINEERING</text>
+
+  <line x1="400" y1="270" x2="1200" y2="270" stroke="#d4af37" stroke-width="2" />
+  
+  <!-- Main Title -->
+  <text x="800" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="64" font-weight="bold" fill="#10120f" letter-spacing="2">CERTIFICATE OF PARTICIPATION</text>
+  <text x="800" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-style="italic" fill="#626861">This certificate is proudly presented to</text>
+  
+  <!-- Participant Name -->
+  <text x="800" y="550" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="bold" fill="#1f8d64">MD. IQBAL HOSSAIN</text>
+  <line x1="500" y1="580" x2="1100" y2="580" stroke="#10120f" stroke-width="1.5" />
+  
+  <!-- Description -->
+  <text x="800" y="660" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#10120f">for outstanding participation in the <tspan font-weight="bold" fill="#1f8d64">Summer Fest 2023</tspan></text>
+  <text x="800" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#10120f">Competitive Programming Contest with Team <tspan font-weight="bold">UITS_EMK</tspan></text>
+
+  <!-- Gold Seal -->
+  <circle cx="800" cy="860" r="60" fill="url(#goldGrad)" />
+  <circle cx="800" cy="860" r="52" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 4" />
+  <text x="800" y="866" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">OFFICIAL</text>
+
+  <!-- Signatures -->
+  <line x1="250" y1="930" x2="550" y2="930" stroke="#626861" stroke-width="1.5" />
+  <text x="400" y="960" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#626861">Event Coordinator</text>
+
+  <line x1="1050" y1="930" x2="1350" y2="930" stroke="#626861" stroke-width="1.5" />
+  <text x="1200" y="960" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="600" fill="#626861">Head of Department</text>
+</svg>

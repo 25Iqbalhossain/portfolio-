@@ -3,6 +3,7 @@ const navLinks = [
   { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Research', href: '#publications' },
+  { label: 'Certificates', href: '#certificates' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -36,7 +37,7 @@ const socialLinks = [
   },
 ];
 
-const expertise = ['Generative AI', 'Machine Learning', 'NLP', 'Intelligent Search', 'Data Engineering', 'MLOps'];
+const expertise = ['GENERATIVE AI', 'MACHINE LEARNING', 'NLP', 'INTELLIGENT SEARCH', 'DATA ENGINEERING', 'MLOPS'];
 
 export default function Hero({ theme, onToggleTheme }) {
   return (
@@ -57,18 +58,18 @@ export default function Hero({ theme, onToggleTheme }) {
             {theme === 'dark' ? (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>) : (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.5 14.2A8 8 0 0 1 9.8 3.5a8.3 8.3 0 1 0 10.7 10.7Z" /></svg>)}
           </button>
           <a className="hero-nav-cv" href="/Md_Iqbal_Hossain_CV.pdf" download>
-            Download CV <span aria-hidden="true">↓</span>
+            Download CV <span aria-hidden="true">&darr;</span>
           </a>
         </div>
       </nav>
 
-      {/* -- decorative background outline circles (entering from edges left and right) -- */}
+      {/* -- decorative background outline circles -- */}
       <svg className="hero-bg-circles" aria-hidden="true">
         <circle cx="-170" cy="115%" r="420" />
         <circle cx="calc(100% + 170px)" cy="-15%" r="420" />
       </svg>
 
-      {/* -- social links — left vertical strip -- */}
+      {/* -- social links -- left vertical strip -- */}
       <div className="hero-socials" aria-label="Social profiles">
         <span className="socials-label">CONNECT</span>
         <div className="socials-links">
@@ -80,7 +81,7 @@ export default function Hero({ theme, onToggleTheme }) {
         </div>
       </div>
       
-      {/* -- metadata — right vertical area -- */}
+      {/* -- metadata -- right vertical area -- */}
       <div className="hero-metadata" aria-label="Professional info">
         <div className="meta-group">
           <span className="meta-label">BASED IN</span>
@@ -88,50 +89,101 @@ export default function Hero({ theme, onToggleTheme }) {
         </div>
         <div className="meta-group">
           <span className="meta-label">FOCUS</span>
-          <span className="meta-value">AI · ML · INTELLIGENT SYSTEMS</span>
+          <span className="meta-value">AI &middot; ML &middot; INTELLIGENT SYSTEMS</span>
         </div>
       </div>
       
-      {/* -- portrait composition group -- */}
-      <div className="hero-portrait-composition">
-        {/* background organic line */}
-        <svg className="hero-line" viewBox="0 0 1000 600" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <path d="M 680 180 C 800 120, 850 280, 750 320 C 600 370, 450 420, 300 380 C 150 340, 70 480, 200 520 C 350 560, 550 500, 700 530" />
-        </svg>
+      {/* -- main hero content grid (LEFT 48%: circular portrait, RIGHT 52%: content) -- */}
+      <div className="hero-content">
+        {/* -- portrait composition group (LEFT) -- */}
+        <div className="hero-portrait-composition">
+          {/* background organic green fluid line framing the portrait */}
+          <svg className="hero-line" viewBox="0 0 700 700" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <linearGradient id="heroLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#55c99a" stopOpacity="0.85" />
+                <stop offset="60%" stopColor="#1f8d64" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#55c99a" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
 
-        <div className="hero-portrait">
-          <div className="portrait-arch">
-            <img src="/profile.png" alt="Md. Iqbal Hossain" className="portrait-image" />
+            {/* Main fluid wave curve */}
+            <path
+              d="M 90,260 C 40,460 200,620 410,610 C 590,600 660,430 610,250 C 570,120 620,50 670,20"
+              stroke="url(#heroLineGrad)"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+            />
+
+            {/* Companion dashed tech orbit path */}
+            <path
+              d="M 120,290 C 80,470 220,590 400,580 C 550,570 620,430 580,270"
+              stroke="url(#heroLineGrad)"
+              strokeWidth="1.2"
+              strokeDasharray="4 8"
+              strokeLinecap="round"
+              opacity="0.5"
+            />
+          </svg>
+
+          {/* -- Clean Circular Portrait Wrapper & Frame -- */}
+          <div className="hero-portrait-wrap">
+            <div className="hero-portrait-frame">
+              <img src="/profile.png" alt="Md. Iqbal Hossain" className="portrait-image" />
+            </div>
+          </div>
+
+          {/* -- circular ring decoration (Upper-Right of Portrait) -- */}
+          <div className="hero-orbit-badge" aria-hidden="true">
+            <svg className="hero-orbit-svg" viewBox="0 0 140 140" overflow="visible">
+              <defs>
+                <path id="heroOrbitPath" d="M 70,70 m -56,0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0" fill="none" />
+              </defs>
+              <g className="hero-orbit-rotator">
+                <text className="hero-orbit-text">
+                  <textPath href="#heroOrbitPath" startOffset="0%">
+                   AI ENGINEER &middot; RESEARCHER &middot; MACHINE LEARNING &middot; DEEP LEARNING &middot; NLP &middot; LLM &middot;&nbsp;
+                  </textPath>
+                </text>
+              </g>
+            </svg>
+            <span className="hero-orbit-center" />
           </div>
         </div>
 
-        {/* -- circular ring decoration -- */}
-        <div className="hero-orbit-badge" aria-hidden="true">
-          <svg className="hero-orbit-svg" viewBox="0 0 140 140" overflow="visible">
-            <defs>
-              <path id="heroOrbitPath" d="M 70,70 m -56,0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0" fill="none" />
-            </defs>
-            <g className="hero-orbit-rotator">
-              <text className="hero-orbit-text">
-                <textPath href="#heroOrbitPath" startOffset="0%">
-                 MACHINE LEARNING · DEEP LEARNING · NLP · LLM · FASTAPI · AWS ·&nbsp;
-                </textPath>
-              </text>
-            </g>
-          </svg>
-          <span className="hero-orbit-center" />
+        {/* -- text content (RIGHT) -- */}
+        <div className="hero-identity">
+          <span className="hero-eyebrow">AI ENGINEER / RESEARCHER</span>
+          
+          <h1 id="hero-name">
+            MD. IQBAL<br />HOSSAIN
+          </h1>
+
+          <p className="hero-role">
+            AI ENGINEER / RESEARCHER <span className="role-sep">//</span> MACHINE LEARNING <span className="role-sep">//</span> NLP &amp; LLM
+          </p>
+
+          <p className="hero-summary">
+            Architecting scalable AI, machine learning, NLP, and LLM applications from applied research to production.
+          </p>
+
+          <div className="hero-cta">
+            <a className="hero-btn-primary" href="#projects">
+              View selected work <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a className="hero-btn-secondary" href="/Md_Iqbal_Hossain_CV.pdf" download>
+              Download CV <span aria-hidden="true">&darr;</span>
+            </a>
+          </div>
+
+          <div className="hero-status">
+            <span className="status-dot" />
+            Software Engineer (AI) &amp; Researcher &middot; Based in Dhaka, Bangladesh
+          </div>
         </div>
       </div>
 
-      {/* -- identity — below portrait -- */}
-      <div className="hero-identity">
-        <h1 id="hero-name">MD. IQBAL HOSSAIN</h1>
-        <p className="hero-role">
-          AI Engineer <span className="role-sep">//</span> Machine Learning <span className="role-sep">//</span> Intelligent Systems
-        </p>
-      </div>
-
-      {/* -- expertise strip — bottom of canvas -- */}
+      {/* -- expertise strip -- bottom of canvas -- */}
       <div className="hero-expertise" aria-label="Areas of expertise">
         {expertise.map((item) => (
           <span key={item}>{item}</span>
@@ -140,5 +192,3 @@ export default function Hero({ theme, onToggleTheme }) {
     </section>
   );
 }
-
-
