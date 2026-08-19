@@ -38,9 +38,8 @@ const professionalExperience = [
 
 const education = [
   ['Aug 2021 - Aug 2025', 'BSc in Computer Science and Engineering', 'University of Information Technology and Sciences (UITS)', 'CGPA 3.67'],
-  ['Nov 2025', 'Machine Learning Certification', 'Cambridge International Qualifications, United Kingdom', 'EQF Level 2, online'],
-  ['Dec 2025', 'Cloud Computing Certification', 'NASBA, United States', 'EQF Level 2, online'],
-  ['Dec 2025 - Jan 2026', 'GitHub Foundations Certification Prep', 'Microsoft Learn with GitHub', 'EQF Level 3'],
+  ['2018 - 2020', 'Higher Secondary Certificate (HSC)', 'Dhaka College', 'GPA 5.00'],
+  ['2016 - 2018', 'Secondary School Certificate (SSC)', 'Nawabpur Government High School', 'GPA 5.00'],
 ];
 
 function ExperienceRow({ item }) {
@@ -67,7 +66,7 @@ export default function Experience() {
         </div>
         <div className="experience-list">{professionalExperience.map((item) => <ExperienceRow key={item.organisation} item={item} />)}</div>
 
-        <div className="education-heading"><span className="eyebrow">Education and certification</span><h3>Foundation</h3></div>
+        <div className="education-heading"><span className="eyebrow">Education</span><h3>Foundation</h3></div>
         <div className="education-list">
           {education.map(([period, title, institution, note]) => (
             <article className="education-row" key={title}>

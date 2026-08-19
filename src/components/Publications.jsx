@@ -1,7 +1,7 @@
 const publications = [
   {
     status: 'Published',
-    year: '2025',
+    year: '2026',
     title: 'A machine-learning framework for enhancing cognitive function using tDCS and Brain Gym intervention',
     venue: 'IEEE Access',
     url: 'https://ieeexplore.ieee.org/document/11502543/',
@@ -9,14 +9,14 @@ const publications = [
   },
   {
     status: 'Under review',
-    year: '2025',
+    year: '2026',
     title: 'Agentic AI Journalist: A User-Centered Accessibility Framework for Real-Time Global News',
     venue: 'ACM Transactions on Computing for People with Disabilities (TCPS)',
     description: 'Proposes an agentic AI framework that makes real-time global news more accessible through user-centered design, automated summarisation, and multimodal presentation.',
   },
   {
     status: 'Under review',
-    year: '2025',
+    year: '2026',
     title: 'Theory-Driven Hybrid Forecasting & Deployment Framework for Place-Based Crime Reduction in Bangladesh',
     venue: 'IEEE Transactions on Computational Social Systems (TCSS)',
     description: 'Combines criminological theory with modern time-series forecasting models to predict and inform place-based crime intervention strategies in Bangladesh.',
@@ -28,7 +28,7 @@ export default function Publications() {
     <section id="publications" className="section publications-section" aria-labelledby="publications-title">
       <div className="container">
         <div className="section-header">
-          <div className="section-index">06 <span>Research</span></div>
+          <div className="section-index">07 <span>Research</span></div>
           <div>
             <p className="eyebrow">Research and publications</p>
             <h2 id="publications-title">Questions worth carrying into the world.</h2>

@@ -5,6 +5,7 @@ import About from './components/About';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import OpenSource from './components/OpenSource';
 import Kaggle from './components/Kaggle';
 import Publications from './components/Publications';
 import Certificates from './components/Certificates';
@@ -51,6 +52,7 @@ export default function App() {
         <Experience />
         <Skills />
         <Projects />
+        <OpenSource />
         <Kaggle />
         <Publications />
         <Certificates />

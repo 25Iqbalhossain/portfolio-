@@ -27,7 +27,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section contact-section" aria-labelledby="contact-title">
       <div className="container contact-panel">
-        <div className="contact-heading"><div className="section-index">07 <span>Contact</span></div><p className="eyebrow">Open to considered collaborations</p><h2 id="contact-title">Let's build something intelligent.</h2><p>For AI/ML opportunities, research partnerships, and thoughtful product work.</p></div>
+        <div className="contact-heading"><div className="section-index">09 <span>Contact</span></div><p className="eyebrow">Open to considered collaborations</p><h2 id="contact-title">Let's build something intelligent.</h2><p>For AI/ML opportunities, research partnerships, and thoughtful product work.</p></div>
         <div className="contact-layout">
           <div className="contact-details">
             {contactDetails.map(([label, value, href]) => <div key={label}><span>{label}</span>{href ? <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}>{value}</a> : <strong>{value}</strong>}</div>)}

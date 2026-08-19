@@ -12,7 +12,7 @@ export default function Kaggle() {
     <section id="kaggle" className="section kaggle-section" aria-labelledby="kaggle-title">
       <div className="container kaggle-layout">
         <div className="kaggle-copy">
-          <div className="section-index">05 <span>Kaggle and open source</span></div>
+          <div className="section-index">06 <span>Kaggle and open source</span></div>
           <p className="eyebrow">Data science community</p>
           <h2 id="kaggle-title">Learning in public, sharing practical work.</h2>
           <p>Active Kaggle contributor with public datasets and notebooks across Python, machine learning, deep learning, AI ethics, and feature engineering.</p>

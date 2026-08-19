@@ -2,7 +2,18 @@ import React from 'react';
 
 const certificates = [
   {
-    title: 'Basics of Machine Learning Algorithms',
+    title: 'Cloud Computing: Understanding Core Concepts',
+    institution: 'LinkedIn Learning',
+    category: 'CLOUD COMPUTING',
+    year: '2024',
+    code: 'Cert',
+    date: '2024',
+    description: 'Completed a comprehensive course covering cloud computing fundamentals, core concepts, deployment models, and service types (IaaS, PaaS, SaaS).',
+    image: '/cert_cloud_computing.jpg',
+    pdf: '/CertificateOfCompletion_Cloud Computing Understanding Core Concepts (1).pdf',
+  },
+  {
+    title: 'Machine Learning Algorithms',
     institution: 'UniAthena – Cambridge International Qualifications, UK',
     category: 'MACHINE LEARNING',
     year: '2024',
@@ -14,7 +25,7 @@ const certificates = [
     transcript: '/Iqbal_CR640_transcript.pdf',
   },
   {
-    title: 'Basics of Python',
+    title: 'Python',
     institution: 'UniAthena – Cambridge International Qualifications, UK',
     category: 'PYTHON',
     year: '2024',
@@ -53,7 +64,7 @@ export default function Certificates() {
     <section id="certificates" className="section certificates-section" aria-labelledby="certificates-title">
       <div className="container certificates-container">
         <div className="section-header">
-          <div className="section-index">07 <span>Certifications</span></div>
+          <div className="section-index">08 <span>Certifications</span></div>
           <div>
             <p className="eyebrow">Verified Credentials & Achievements</p>
             <h2 id="certificates-title">Certificates & Academic Transcripts.</h2>
