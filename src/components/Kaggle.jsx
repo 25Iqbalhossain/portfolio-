@@ -5,7 +5,17 @@ const stats = [
   ['Active', 'Contributor status'],
 ];
 
-const badges = ['Python', 'Intro to ML', 'GitHub Code Uploader', 'AI Ethics', 'Pandas', 'Feature Engineering', 'Intro to Deep Learning', 'Intro to AI Ethics', '7-Day Streak'];
+const badges = [
+  { name: 'Python', emoji: '🐍' },
+  { name: 'Intro to ML', emoji: '🤖' },
+  { name: 'GitHub Code Uploader', emoji: '🐙' },
+  { name: 'AI Ethics', emoji: '⚖️' },
+  { name: 'Pandas', emoji: '🐼' },
+  { name: 'Feature Engineering', emoji: '⚙️' },
+  { name: 'Intro to Deep Learning', emoji: '🧠' },
+  { name: 'Intro to AI Ethics', emoji: '🛡️' },
+  { name: '7-Day Streak', emoji: '🔥' },
+];
 
 export default function Kaggle() {
   return (
@@ -21,7 +31,7 @@ export default function Kaggle() {
         <div className="kaggle-profile">
           <div className="kaggle-profile-head"><span className="kaggle-mark">K</span><div><strong>Kaggle</strong><span>iqbalhossain25</span></div><a href="https://www.kaggle.com/iqbalhossain25" target="_blank" rel="noreferrer" aria-label="Open Kaggle profile">↗</a></div>
           <div className="kaggle-stats">{stats.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
-          <div className="badge-area"><span className="eyebrow">Verified badges</span><div className="badge-list">{badges.map((badge, index) => <span key={badge}><i>{String(index + 1).padStart(2, '0')}</i>{badge}</span>)}</div></div>
+          <div className="badge-area"><span className="eyebrow">Verified badges</span><div className="badge-list">{badges.map((badge) => <span key={badge.name}><i>{badge.emoji}</i>{badge.name}</span>)}</div></div>
         </div>
       </div>
     </section>
