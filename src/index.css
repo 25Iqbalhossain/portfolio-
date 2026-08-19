@@ -822,20 +822,47 @@ h2 { font-size: clamp(39px, 5vw, 66px); max-width: 850px; }
   gap: 10px;
 }
 
-.footer-nav-list a,
+.footer-nav-list a {
+  font-size: 14px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-nav-list a:hover {
+  color: var(--accent-deep);
+}
+
 .footer-social-list a {
   font-size: 14px;
   color: var(--ink-muted);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.15s ease;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  transition: color 220ms ease;
 }
 
-.footer-nav-list a:hover,
 .footer-social-list a:hover {
   color: var(--accent-deep);
+}
+
+:root[data-theme='dark'] .footer-social-list a:hover {
+  color: #61d6a6;
+}
+
+.footer-social-list a span[aria-hidden="true"] {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 0.95em;
+  transition: transform 220ms ease;
+}
+
+.footer-social-list a:hover span[aria-hidden="true"] {
+  transform: translate(2px, -2px);
 }
 
 .footer-bottom-bar {
@@ -1132,20 +1159,47 @@ h2 { font-size: clamp(39px, 5vw, 66px); max-width: 850px; }
   gap: 10px;
 }
 
-.footer-nav-list a,
+.footer-nav-list a {
+  font-size: 14px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-nav-list a:hover {
+  color: var(--accent-deep);
+}
+
 .footer-social-list a {
   font-size: 14px;
   color: var(--ink-muted);
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.15s ease;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  transition: color 220ms ease;
 }
 
-.footer-nav-list a:hover,
 .footer-social-list a:hover {
   color: var(--accent-deep);
+}
+
+:root[data-theme='dark'] .footer-social-list a:hover {
+  color: #61d6a6;
+}
+
+.footer-social-list a span[aria-hidden="true"] {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  font-size: 0.95em;
+  transition: transform 220ms ease;
+}
+
+.footer-social-list a:hover span[aria-hidden="true"] {
+  transform: translate(2px, -2px);
 }
 
 .footer-bottom-bar {

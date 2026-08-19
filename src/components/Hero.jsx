@@ -58,7 +58,7 @@ export default function Hero({ theme, onToggleTheme }) {
             {theme === 'dark' ? (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg>) : (<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20.5 14.2A8 8 0 0 1 9.8 3.5a8.3 8.3 0 1 0 10.7 10.7Z" /></svg>)}
           </button>
           <a className="hero-nav-cv" href="/Md_Iqbal_Hossain_CV.pdf" download>
-            Download CV <span aria-hidden="true">&darr;</span>
+            Download CV <span aria-hidden="true">↓</span>
           </a>
         </div>
       </nav>
@@ -89,7 +89,7 @@ export default function Hero({ theme, onToggleTheme }) {
         </div>
         <div className="meta-group">
           <span className="meta-label">FOCUS</span>
-          <span className="meta-value">AI &middot; ML &middot; INTELLIGENT SYSTEMS</span>
+          <span className="meta-value">AI · ML · INTELLIGENT SYSTEMS</span>
         </div>
       </div>
       
@@ -142,7 +142,7 @@ export default function Hero({ theme, onToggleTheme }) {
               <g className="hero-orbit-rotator">
                 <text className="hero-orbit-text">
                   <textPath href="#heroOrbitPath" startOffset="0%">
-                   AI ENGINEER &middot; RESEARCHER &middot; MACHINE LEARNING &middot; DEEP LEARNING &middot; NLP &middot; LLM &middot;&nbsp;
+                   AI ENGINEER · RESEARCHER · MACHINE LEARNING · DEEP LEARNING · NLP · LLM · 
                   </textPath>
                 </text>
               </g>
@@ -160,7 +160,7 @@ export default function Hero({ theme, onToggleTheme }) {
           </h1>
 
           <p className="hero-role">
-            AI ENGINEER / RESEARCHER <span className="role-sep">//</span> MACHINE LEARNING <span className="role-sep">//</span> NLP &amp; LLM
+            AI ENGINEER / RESEARCHER <span className="role-sep">//</span> MACHINE LEARNING <span className="role-sep">//</span> NLP & LLM
           </p>
 
           <p className="hero-summary">
@@ -169,16 +169,16 @@ export default function Hero({ theme, onToggleTheme }) {
 
           <div className="hero-cta">
             <a className="hero-btn-primary" href="#projects">
-              View selected work <span aria-hidden="true">&rarr;</span>
+              View selected work <span aria-hidden="true">→</span>
             </a>
             <a className="hero-btn-secondary" href="/Md_Iqbal_Hossain_CV.pdf" download>
-              Download CV <span aria-hidden="true">&darr;</span>
+              Download CV <span aria-hidden="true">↓</span>
             </a>
           </div>
 
           <div className="hero-status">
             <span className="status-dot" />
-            Software Engineer (AI) &amp; Researcher &middot; Based in Dhaka, Bangladesh
+            Software Engineer (AI) & Researcher · Based in Dhaka, Bangladesh
           </div>
         </div>
       </div>

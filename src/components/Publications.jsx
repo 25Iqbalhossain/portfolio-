@@ -46,7 +46,7 @@ export default function Publications() {
                 <h3>
                   {publication.url ? (
                     <a href={publication.url} target="_blank" rel="noreferrer" className="publication-title-link">
-                      {publication.title} <span className="pub-link-icon" aria-hidden="true">&nearr;</span>
+                      {publication.title} <span className="pub-link-icon" aria-hidden="true">↗</span>
                     </a>
                   ) : (
                     publication.title
@@ -56,7 +56,7 @@ export default function Publications() {
                 <p>{publication.description}</p>
                 {publication.url && (
                   <a href={publication.url} target="_blank" rel="noreferrer" className="publication-link-btn">
-                    View on IEEE Xplore <span aria-hidden="true">&nearr;</span>
+                    View on IEEE Xplore <span aria-hidden="true">↗</span>
                   </a>
                 )}
               </div>

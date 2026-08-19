@@ -28,7 +28,7 @@ export default function Footer() {
               <img src="/favicon.svg" alt="" />
               <span>MD. IQBAL HOSSAIN</span>
             </a>
-            <p className="footer-role">Software Engineer (AI) &middot; AI Researcher</p>
+            <p className="footer-role">Software Engineer (AI) · AI Researcher</p>
             <p className="footer-bio">
               Architecting scalable AI, machine learning, NLP, and LLM applications driven by applied research and production-first engineering.
             </p>
@@ -53,7 +53,8 @@ export default function Footer() {
               {socialLinks.map((s) => (
                 <li key={s.label}>
                   <a href={s.href} target="_blank" rel="noreferrer">
-                    {s.label} <span aria-hidden="true">&nearr;</span>
+                    <span>{s.label}</span>
+                    <span aria-hidden="true">↗</span>
                   </a>
                 </li>
               ))}
@@ -64,7 +65,7 @@ export default function Footer() {
         {/* -- Bottom Bar -- */}
         <div className="footer-bottom-bar">
           <p className="footer-copyright">
-            &copy; {currentYear} Md. Iqbal Hossain. All rights reserved.
+            © {currentYear} Md. Iqbal Hossain. All rights reserved.
           </p>
 
           <div className="footer-status-pill">
@@ -73,7 +74,7 @@ export default function Footer() {
           </div>
 
           <a href="#hero" className="footer-back-top" aria-label="Back to top">
-            Back to top <span aria-hidden="true">&uarr;</span>
+            Back to top <span aria-hidden="true">↑</span>
           </a>
         </div>
       </div>

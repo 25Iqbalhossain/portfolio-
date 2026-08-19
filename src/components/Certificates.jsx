@@ -55,8 +55,8 @@ export default function Certificates() {
         <div className="section-header">
           <div className="section-index">07 <span>Certifications</span></div>
           <div>
-            <p className="eyebrow">Verified Credentials &amp; Achievements</p>
-            <h2 id="certificates-title">Certificates &amp; Academic Transcripts.</h2>
+            <p className="eyebrow">Verified Credentials & Achievements</p>
+            <h2 id="certificates-title">Certificates & Academic Transcripts.</h2>
           </div>
         </div>
 
