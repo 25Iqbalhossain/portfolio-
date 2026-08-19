@@ -1,7 +1,9 @@
+import React from 'react';
+
 const certificates = [
   {
     title: 'Basics of Machine Learning Algorithms',
-    institution: 'UniAthena ? Cambridge International Qualifications, UK',
+    institution: 'UniAthena – Cambridge International Qualifications, UK',
     category: 'MACHINE LEARNING',
     year: '2024',
     code: 'CR640',
@@ -13,7 +15,7 @@ const certificates = [
   },
   {
     title: 'Basics of Python',
-    institution: 'UniAthena ? Cambridge International Qualifications, UK',
+    institution: 'UniAthena – Cambridge International Qualifications, UK',
     category: 'PYTHON',
     year: '2024',
     code: 'CR641',
@@ -28,6 +30,7 @@ const certificates = [
     institution: 'HackerRank',
     category: 'PYTHON',
     year: '2024',
+    code: 'Cert',
     date: '25 August 2024',
     description: 'Passed the HackerRank Python Basic skill certification assessment.',
     image: '/cert_python_basic.png',
@@ -38,6 +41,7 @@ const certificates = [
     institution: 'University of Information Technology & Sciences (UITS)',
     category: 'COMPETITIVE PROGRAMMING',
     year: '2023',
+    code: '',
     date: '2023',
     description: 'Participation in the Summer Fest 2023 Competitive Programming Contest as part of team UITS_EMK.',
     image: '/cert_summer_fest_2023.svg',
@@ -59,21 +63,19 @@ export default function Certificates() {
         <div className="certificates-grid">
           {certificates.map((cert) => (
             <article className="certificate-card" key={cert.title}>
-              {/* -- Large Certificate Image Preview (Clickable) -- */}
               <a
                 className="certificate-media"
                 href={cert.pdf || cert.image}
                 target="_blank"
                 rel="noreferrer"
-                title={`View ${cert.title} PDF/Preview`}
+                title={'View ' + cert.title + ' PDF/Preview'}
               >
-                <img src={cert.image} alt={`${cert.title} Certificate Preview`} loading="lazy" />
+                <img src={cert.image} alt={cert.title + ' Certificate Preview'} loading="lazy" />
               </a>
 
-              {/* -- Certificate Body Text Content -- */}
               <div className="certificate-body">
                 <div className="certificate-meta">
-                  {cert.category} &middot; {cert.year}
+                  {cert.category} • {cert.year}
                 </div>
 
                 <h3 className="certificate-title">
@@ -89,22 +91,21 @@ export default function Certificates() {
                 </p>
 
                 <div className="certificate-date">
-                  {cert.code ? `${cert.code} ? ` : ''}{cert.date}
+                  {cert.code ? cert.code + ' • ' : ''}{cert.date}
                 </div>
 
-                {/* -- Action Buttons at Bottom -- */}
                 <div className="certificate-actions">
                   <a className="cert-btn cert-btn--primary" href={cert.pdf || cert.image} target="_blank" rel="noreferrer">
-                    View Certificate <span aria-hidden="true">&nearr;</span>
+                    View Certificate <b aria-hidden="true">↗</b>
                   </a>
                   {cert.pdf && (
                     <a className="cert-btn cert-btn--secondary" href={cert.pdf} download>
-                      Download <span aria-hidden="true">&darr;</span>
+                      Download <b aria-hidden="true">↓</b>
                     </a>
                   )}
                   {cert.transcript && (
                     <a className="cert-btn cert-btn--secondary" href={cert.transcript} target="_blank" rel="noreferrer">
-                      Transcript <span aria-hidden="true">&nearr;</span>
+                      Transcript <b aria-hidden="true">↗</b>
                     </a>
                   )}
                 </div>
