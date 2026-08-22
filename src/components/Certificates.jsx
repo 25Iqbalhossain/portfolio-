@@ -13,6 +13,17 @@ const certificates = [
     pdf: '/CertificateOfCompletion_Cloud Computing Understanding Core Concepts (1).pdf',
   },
   {
+    title: 'GitHub Foundations Cert Prep by Microsoft Press',
+    institution: 'LinkedIn Learning',
+    category: 'GITHUB',
+    year: '2025',
+    code: 'Cert',
+    date: '31 December 2025',
+    description: 'Completed LinkedIn Learning GitHub Foundations certification preparation, covering core GitHub concepts and workflows.',
+    image: '/cert_github_foundations.png',
+    pdf: '/LinkedIn Learning Certificate.pdf',
+  },
+  {
     title: 'Machine Learning Algorithms',
     institution: 'UniAthena – Cambridge International Qualifications, UK',
     category: 'MACHINE LEARNING',
